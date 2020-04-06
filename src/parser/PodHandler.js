@@ -1,4 +1,5 @@
 import ParserJsonLdToRoute from "./ParserJsonLdToRoute";
+import { findDOMNode } from "react-dom";
 
 const auth = require('solid-auth-client');
 const FC = require('solid-file-client');
@@ -50,16 +51,8 @@ class PodHandler {
         let buildPath = '';
         Array.from(mediaList).forEach(file => {
             buildPath = url + file.name;
-            this.storeMedia(buildPath, file, file.type, callback)
+            this.storeFile(buildPath,file, callback);
         });
-    }
-
-    storeMedia(url, data, contentType, callback) {
-        let response = fc.putFile(url, data, contentType);
-        response.then(
-            (response) => { callback(response.url, response); }
-            , (error) => { callback(null, error); }
-        );
     }
 
     async findAllRoutes() {

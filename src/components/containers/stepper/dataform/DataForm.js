@@ -82,7 +82,6 @@ export class DataForm extends Component {
                         </Grid>
                         <Grid item xs={12} sm={3} >
                             <input
-                                disabled
                                 accept="image/*"
                                 style={{ display: 'none' }}
                                 id="media-photo"
@@ -92,14 +91,13 @@ export class DataForm extends Component {
                                 onChange={(e) => this.handleMediaChange(e.target.files, 0)} //photos
                             />
                             <label htmlFor="media-photo">
-                                <Button disabled variant="contained" color="default" component="span" startIcon={<AddAPhotoIcon />}>
+                                <Button variant="contained" color="default" component="span" startIcon={<AddAPhotoIcon />}>
                                     Photos
                             </Button>
                             </label>
                         </Grid>
                         <Grid item xs={12} sm={6} >
                             <input
-                                disabled
                                 accept="video/*"
                                 style={{ display: 'none' }}
                                 id="media-video"
@@ -109,7 +107,7 @@ export class DataForm extends Component {
                                 onChange={(e) => this.handleMediaChange(e.target.files, 1)} //videos
                             />
                             <label htmlFor="media-video">
-                                <Button disabled variant="contained" color="default" component="span" startIcon={<CloudUploadIcon />}>
+                                <Button variant="contained" color="default" component="span" startIcon={<CloudUploadIcon />}>
                                     Videos
                             </Button>
                             </label>

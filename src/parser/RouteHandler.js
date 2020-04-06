@@ -19,7 +19,11 @@ export async function uploadRoute(route, callback) {
     let session = await auth.currentSession();
     let storageHandler = new PodHandler(session);
     let fileName = route.getName() + "@" + route.getId() + ".jsonld";
+    let media = route.getMedia();
 
+    if(media.length){
+        uploadMedia(media);
+    }
     // let successCode = -1; // -1 if error. 0 otherwise.
     storageHandler.storeRoute(fileName, route.getJsonLD(), (status) => {
         callback(status);
