@@ -4,6 +4,8 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+
 import DetailsMap from '../map/DetailsMap.js';
 
 const useStyles = makeStyles((theme) => ({
@@ -16,83 +18,53 @@ export default function RouteDetails(props) {
     const classes = useStyles();
 
     return (
-        <Grid container className={classes.root} spacing={1}>
-            <Grid item xs={6}>
-                <Card elevation={5} className={classes.root}>
-                    <CardContent>
-                        <Typography variant="h5" component="h2">
+        <div>
+            <Grid  item container className={classes.root} spacing={2} direction="column" justify="center" alignItems="center">
+                <Grid  item container className={classes.root} spacing={2} direction="column" justify="center" alignItems="center">
+                    <Grid item xs={12} className={classes.root}>
+                        <Typography variant="h4">
                             {props.route.getName()}
                         </Typography>
-
-                        <DetailsMap route={props.route}></DetailsMap>
-                    </CardContent>
-                </Card>
-            </Grid>
-            <Grid item xs={6}>
-                <Grid container direction="column" spacing={1} alignItems="stretch" justify="flex-start">
-                    <Grid item xs={12}>
-                        <Card elevation={5} className={classes.root}>
-                            <CardContent>
-                                <Typography className={classes.pos} >
-                                    {/* Date: {props.route.getDate()} */}
-                                    Date: 22/3/2020
-                                </Typography>
-                            </CardContent>
-                        </Card>
                     </Grid>
-                    <Grid item xs={12}>
-                        <Card elevation={5} className={classes.root}>
-                            <CardContent>
+                    <Grid item container className={classes.root} spacing={3} xs={12}>
+                        <Grid item container className={classes.root} xs={8} spacing={2} direction="column" >
+                            <Grid item>
+                                <DetailsMap route={props.route}></DetailsMap>
+                            </Grid>
+                            <Grid item>
+                                Grafico
+                            </Grid>
+                        </Grid>
+                        <Grid item container className={classes.root} spacing={2} xs={4} direction="column" >
+                            <Grid item>
                                 <Typography className={classes.pos} >
-                                    {/* Distance: {props.route.getTotalDistance()} */}
-                                    Distance: 3.63km
+                                    Date: {props.route.getDate()}
                                 </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Card elevation={5} className={classes.root}>
-                            <CardContent>
-                                <Typography className={classes.pos} >
-                                    {/* Time: {props.route.getTime()} */}
-                                    Time: 42 min
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Card elevation={5} className={classes.root}>
-                            <CardContent>
+                            </Grid>
+                            <Grid item container spacing={1}>
+                                <Grid item xs={6}>
+                                    Distance: {props.route.getTotalDistance()}
+                                </Grid>
+                                <Grid item xs={6}>
+                                    Time: {props.route.getTime()}
+                                </Grid>
+                            </Grid>
+                            <Grid item>
                                 <Typography className={classes.pos} >
                                     Description:
                                 </Typography>
                                 <Typography className={classes.pos} >
                                     {props.route.getDescription()}
                                 </Typography>
-                            </CardContent>
-                        </Card>
+                            </Grid>
+                        </Grid>
                     </Grid>
-                    {/* <Grid item xs={12}>
-                        <Card elevation={5} className={classes.root}>
-                            <CardContent>
-                                <Typography className={classes.pos} >
-                                    Coments:
-                                </Typography>
-                                {
-                                    Array.isArray(props.route.getComments()) && //is empty??
-                                    props.route.getComments().map((comment) =>
-                                        (
-                                            <Typography className={classes.pos} >
-                                                {comment}
-                                            </Typography>
-                                        )
-                                    )
-                                }
-                            </CardContent>
-                        </Card>
-                    </Grid> */}
+                </Grid>
+                <Grid item >
+                    Comentarios/media
                 </Grid>
             </Grid>
-        </Grid>
+        </div>
+        
     );
 }
