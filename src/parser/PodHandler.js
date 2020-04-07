@@ -38,7 +38,7 @@ class PodHandler {
         // return successCode;
     }
 
-    async storeMedia(mediaList, callback = () => { }) {
+    async storeMedia(mediaList, routename,callback = () => { }) {
         if (!mediaList.length) {
             return Promise.reject('No media to upload');
         }
@@ -50,7 +50,7 @@ class PodHandler {
 
         let buildPath = '';
         Array.from(mediaList).forEach(file => {
-            buildPath = url + file.name;
+            buildPath = url + routename + "@" + file.name ;
             this.storeFile(buildPath,file, callback);
         });
     }
