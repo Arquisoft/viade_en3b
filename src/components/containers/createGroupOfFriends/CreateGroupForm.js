@@ -40,7 +40,7 @@ export class CreateGroupForm extends Component{
             let friends = this.state.friends;
             //let group = new GroupOfFriends(name, friends);
             //this.storeGroup(group);
-            new GroupOfFriends(name, friends);
+            new GroupOfFriends(name, friends).storeInPod();
 
     };
 

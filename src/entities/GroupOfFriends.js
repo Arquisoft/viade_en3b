@@ -4,17 +4,22 @@ import { parser } from '../../../parser/parseToTurtle';
 class GroupOfFriends {
 
     constructor(name, friends){
+
         this.name = name;
         this.friends = friends;
 
-        this.file = this.parseToTurtle();
-        podHandler.storeGroup(this.file);
+    }
+
+    storeInPod(){
+
+        var file = this.parseToTurtle();
+        podHandler.storeGroup(file);
 
     }
 
     parseToTurtle(){
 
-        return parser.parse(this.file);
+        return parser.parseToTurtle(this.name, this.friends);
         
     }
 
@@ -27,7 +32,7 @@ class GroupOfFriends {
     getFriends(){
 
         return this.friends;
-        
+
     }
 
 }
