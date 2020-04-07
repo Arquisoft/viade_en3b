@@ -42,6 +42,12 @@
   height:45vh;
 }
 
+
+#chart{
+  width: 100%;
+  height:45vh;
+}
+
 .leaflet-container{
   width: 100%;
   height: 17vh;

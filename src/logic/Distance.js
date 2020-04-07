@@ -1,7 +1,7 @@
 //in km
 
-export default class Distance{
-static getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+
+function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
     var R = 6371; // Radius of the earth in km
     var dLat = deg2rad(lat2-lat1);  // deg2rad below
     var dLon = deg2rad(lon2-lon1); 
@@ -15,12 +15,12 @@ static getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
     return d;
   }
   
-deg2rad(deg) {
+function deg2rad(deg) {
     return deg * (Math.PI/180)
   }
 
 //in km
-static getTotalDistance(routeElements) {
+function getTotalDistance(routeElements) {
     var total = 0;
 
     for (let i = 1; i < routeElements.length; i++) {
@@ -32,7 +32,7 @@ static getTotalDistance(routeElements) {
 }
 
 //array de distancias para repensetarlas en el grafico
-static getArrayDistances(routeElements) {
+function getArrayDistances(routeElements) {
   let total = 0;
   let aux = [];
   aux.push(total);
@@ -46,19 +46,12 @@ static getArrayDistances(routeElements) {
   return aux;
 }
 
-static getChartData(routeElements) {
+export function getChartData(routeElements) {
   let aux = getArrayDistances(routeElements);
-  let data=[
-    {  },
-    { x: 7, y: 1 },
-    { x: 2, y: 4 },
-    { x: 6, y: 2 }
-  ];
+  let data=[];
   for (let i = 0; i < routeElements.length; i++) {
       data.push({x: aux[i], y: routeElements.getElevation()});
   }
 
   return data;
-}
-
 }

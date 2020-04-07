@@ -4,7 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import ElevationGraph from "./ElevationGraph"
 
 import DetailsMap from '../map/DetailsMap.js';
 
@@ -32,7 +32,7 @@ export default function RouteDetails(props) {
                                 <DetailsMap route={props.route}></DetailsMap>
                             </Grid>
                             <Grid item>
-                                Grafico
+                                <ElevationGraph data ={props.route.getRouteElements()}></ElevationGraph>
                             </Grid>
                         </Grid>
                         <Grid item container className={classes.root} spacing={2} xs={4} direction="column" >
