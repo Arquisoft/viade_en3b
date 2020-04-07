@@ -79,8 +79,9 @@ class PodHandler {
                 let files = contents.files;
 
                 for (let i = 0; i < files.length; i++) {
-                    let fileContent = await fc.readFile(files[i].url);
-                    groups.push(groupsParser.parse(fileContent));
+                    // let fileContent = await fc.readFile(files[i].url);
+                    // groups.push(groupsParser.parse(fileContent));
+                    groups.push(groupsParser.parse(files[i].url));
                 }
 
             } catch (error) {
