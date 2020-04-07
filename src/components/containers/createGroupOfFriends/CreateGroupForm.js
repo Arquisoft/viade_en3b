@@ -5,6 +5,8 @@ import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { podHandler } from '../../../parser/PodHandler';
+import GroupOfFriends from '../../../entities/GroupOfFriends.js';
 
 export class CreateGroupForm extends Component{
 
@@ -27,7 +29,25 @@ export class CreateGroupForm extends Component{
       }));
 
     changeName = (event) => {
+
         this.setState({name : event.target.value});
+
+    }
+
+    makeGroup = () => {         
+
+            let name = this.state.name;
+            let friends = this.state.friends;
+            //let group = new GroupOfFriends(name, friends);
+            //this.storeGroup(group);
+            new GroupOfFriends(name, friends);
+
+    };
+
+    storeGroup = (group) => {
+
+        podHandler.storeGroup(group)
+
     }
 
     render(){
@@ -36,11 +56,14 @@ export class CreateGroupForm extends Component{
         const [checked, setChecked] = React.useState(false);
 
         const changeFriends = (event) => {
-            this.setState({friends : event.target.value}); 
+
             setChecked(event.target.checked);
+            this.setState({friends : event.target.value}); 
+            
         }
 
-        const childrenTrimmed = (item) =>            
+        const childrenTrimmed = (item) =>        
+
             <Checkbox
                 checked={checked}
                 value = {this.state.friends}
@@ -68,11 +91,9 @@ export class CreateGroupForm extends Component{
                         </FormGroup>
                     </FormControl>
                 </form>
+                <button onClick={this.makeGroup}>Create</button>
             </React.Fragment>
         );
     }
 
-    storeGroup = () => {
-        //storeInAddressBook(this.name, this.friends);
-    }
 }
