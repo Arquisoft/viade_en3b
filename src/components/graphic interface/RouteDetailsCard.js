@@ -55,7 +55,7 @@ export default function RouteDetails(props) {
                                             </Grid>
                                             <Grid item container spacing={1}>
                                                 <Grid item xs={6}>
-                                                    Distance: {props.route.getTotalDistance()}
+                                                    Distance: {Math.round(props.route.getTotalDistance()*1000)/1000} Km
                                                 </Grid>
                                                 <Grid item xs={6}>
                                                     Time: {props.route.getTime()}
@@ -84,3 +84,4 @@ export default function RouteDetails(props) {
         
     );
 }
+
