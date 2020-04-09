@@ -32,13 +32,6 @@ function getDate(){
   return randomElement;
 }
 
-function getDistance(){
-  let dist = ['3.63km', '6.3km', '25.4km', '7.96km', '5.42km'];
-  let randomElement = dist[Math.floor(Math.random() * dist.length)];
-  // console.log("SELECTED DIST: "+randomElement);
-  return randomElement;
-}
-
 export default function MyRouteCard(props) {
   const classes = useStyles();
   // console.log(props.route);
@@ -68,8 +61,7 @@ export default function MyRouteCard(props) {
 
           <Grid item xs={12} sm={5}>
             <Typography className={classes.pos} color="textSecondary">
-              {/* {props.route.getTotalDistance()} */}
-              {getDistance()}
+              {Math.round(props.route.getTotalDistance()*1000)/1000} Km
             </Typography>
           </Grid>
 
