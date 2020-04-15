@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Map, Polyline, TileLayer, Marker } from 'react-leaflet';
+import ReactLeafletSearch from 'react-leaflet-search';
 
 export class EditableMap extends Component {
 
@@ -69,6 +70,11 @@ export class EditableMap extends Component {
                         >
                         </Marker>
                     )}
+
+                    <ReactLeafletSearch 
+                        position="topleft"
+                        provider="OpenStreetMap"
+                    />
                 </Map>
             </React.Fragment>
         );
