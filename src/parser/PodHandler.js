@@ -1,11 +1,13 @@
 import ParserJsonLdToRoute from "./ParserJsonLdToRoute";
-import ParserGroupsInTurtle from "./ParserGroupsInTurtle";
+import ParserJsonLdToGroupOfFriends from "./ParserJsonLdToGroupOfFriends";
+//import ParserGroupsInTurtle from "./ParserGroupsInTurtle";
 
 const auth = require('solid-auth-client');
 const FC = require('solid-file-client');
 const fc = new FC(auth);
 const parser = new ParserJsonLdToRoute();
-const groupsParser = new ParserGroupsInTurtle();
+const parseGroups = new ParserJsonLdToGroupOfFriends();
+//const groupsParser = new ParserGroupsInTurtle();
 
 class PodHandler {
 
@@ -20,7 +22,7 @@ class PodHandler {
         this.routesFolder = "routes/";
         this.resourcesFolder = "resources/"; // for photos and videos 
         this.commentsFolder = "comments/";
-        this.addressBook = this.pod + "address-book/"; // for friends' groups
+        this.addressBook = this.pod + "groups/"; // for friends' groups
     }
 
     getRoutes
@@ -81,7 +83,8 @@ class PodHandler {
                 for (let i = 0; i < files.length; i++) {
                     // let fileContent = await fc.readFile(files[i].url);
                     // groups.push(groupsParser.parse(fileContent));
-                    groups.push(groupsParser.parse(files[i].url));
+                    //groups.push(groupsParser.parse(files[i].url));
+                    groups.push(parseGroups.parse(files[i].url));
                 }
 
             } catch (error) {
