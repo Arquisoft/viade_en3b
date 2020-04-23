@@ -1,5 +1,5 @@
-import { podHandler } from '../../../parser/PodHandler';
-import { parser } from '../../../parser/parseToTurtle';
+import  podHandler from '../parser/PodHandler.js';
+//import { parser } from '../../../parser/parseToTurtle';
 
 class GroupOfFriends {
 
@@ -12,16 +12,17 @@ class GroupOfFriends {
 
     storeInPod(){
 
-        var file = this.parseToTurtle();
+       // var file = this.parseToTurtle();
+       var file = this.getJsonLD();
         podHandler.storeGroup(file);
 
     }
 
-    parseToTurtle(){
+  //  parseToTurtle(){
 
-        return parser.parseToTurtle(this.name, this.friends);
+    //    return parser.parseToTurtle(this.name, this.friends);
         
-    }
+   // }
 
     getName(){
 
@@ -33,6 +34,45 @@ class GroupOfFriends {
 
         return this.friends;
 
+    }
+
+    getFriendsJsonLD(){
+
+        let friendsUrl = [];
+        this.friends.forEach((f) => {
+            friendsUrl.push({
+                "url": f
+              });
+        });
+
+    }
+
+
+    getJsonLD() {
+        return JSON.stringify(
+            {
+                "@context": {
+                  "@version": 1.1,
+                  "users": {
+                    "@container": "@list",
+                    "@id": "schema:Person"
+                  },
+                  "name": {
+                    "@id": "schema:name",
+                    "@type": "xs:string"
+                  },
+              "url": {
+                    "@id": "schema:url",
+                    "@type": "xs:string"
+                  },
+                    "schema": "http://schema.org/",
+                    "viade": "http://arquisoft.github.io/viadeSpec/",
+                    "xsd": "http://www.w3.org/2001/XMLSchema#"
+                },
+                "name": this.name,
+                "users": this.getFriendsJsonLD()
+            }
+        );
     }
 
 }
