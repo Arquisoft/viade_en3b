@@ -1,4 +1,5 @@
 import ParserJsonLdToRoute from "./ParserJsonLdToRoute";
+import ParseGPX from "./ParseGPX";
 import ParserJsonLdToGroupOfFriends from "./ParserJsonLdToGroupOfFriends";
 //import ParserGroupsInTurtle from "./ParserGroupsInTurtle";
 
@@ -7,6 +8,7 @@ const FC = require('solid-file-client');
 const fc = new FC(auth);
 const parser = new ParserJsonLdToRoute();
 const parseGroups = new ParserJsonLdToGroupOfFriends();
+const gpxParser = new ParseGPX();
 //const groupsParser = new ParserGroupsInTurtle();
 
 class PodHandler {
@@ -122,6 +124,8 @@ class PodHandler {
                         routes.push(parser.parseFromTurtle(fileContent));
                     } else if(extension == "json") { //jsonld
                         routes.push(parser.parse(fileContent));
+                    } else if(extension == "gpx"){ //gpx
+                        routes.push(gpxParser.parse(splittedUrl[0], fileContent));
                     } else {
                         console.log("Viade does not support routes in " + extension + " format");
                     }
