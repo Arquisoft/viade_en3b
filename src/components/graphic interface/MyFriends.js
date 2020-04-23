@@ -1,8 +1,8 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import { MenuItem, Paper, Popper, Grow, MenuList, ListItemIcon, Typography } from '@material-ui/core';
-import ListIcon from '@material-ui/icons/LibraryBooks';
-import AddGroupIcon from '@material-ui/icons/LibraryAdd';
+import ListIcon from '@material-ui/icons/PeopleAlt';
+import AddGroupIcon from '@material-ui/icons/GroupAdd';
 
 const MyFriends = () => {
     const [open, setOpen] = React.useState(false);
