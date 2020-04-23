@@ -1,8 +1,14 @@
 import Route from '../entities/Route.js';
 import RouteElement from '../entities/RouteElement.js';
+const ttl2jsonld = require('@frogcat/ttl2jsonld').parse;
 
 class ParserJsonLdToRoute {
     
+    parseFromTurtle(file){
+        var json_file = ttl2jsonld.parse(file);
+        return this.parse(json_file);
+    }
+
     parse(file){    
         var route = JSON.parse( file );
 

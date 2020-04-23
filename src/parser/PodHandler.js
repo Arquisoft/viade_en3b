@@ -109,8 +109,22 @@ class PodHandler {
                 let files = contents.files;
 
                 for (let i = 0; i < files.length; i++) {
+                    //gat the content
                     let fileContent = await fc.readFile(files[i].url);
-                    routes.push(parser.parse(fileContent));
+                    
+                    //split the url
+                    let splittedUrl = files[i].url.split(".");
+                    //guess the format of the file
+                    let extension = splittedUrl[splittedUrl.length - 1];
+
+                    //parse the different formats for interoperability
+                    if(extension == "ttl"){ //turtle
+                        routes.push(parser.parseFromTurtle(fileContent));
+                    } else if(extension == "json") { //jsonld
+                        routes.push(parser.parse(fileContent));
+                    } else {
+                        console.log("Viade does not support routes in " + extension + " format");
+                    }
                 }
 
             } catch (error) {
