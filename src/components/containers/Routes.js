@@ -6,6 +6,7 @@ import Register from '../services/register/Register.js';
 import UserRoutes from './routes/UserRoutes.js';
 import RouteDetails from './routes/RouteDetails.js';
 import NewRouteForm from "./newrouteform/NewRouteForm.js";
+import CreateGroupForm from "./createGroupOfFriends/CreateGroupForm.js";
 
 const Routes = () => (
   <HashRouter>
@@ -18,6 +19,8 @@ const Routes = () => (
         <Route exact path="/register" component={Register}/>
         <Route exact path="/newRoute" component={NewRouteForm}/>
         <Route exact path="/RouteDetails/:id" component={RouteDetails}/>
+        <Route exact path="/seeFriends" component={CreateGroupForm}/>
+        <Route exact path="/newGroup" component={CreateGroupForm}/>
         <Redirect to="/404" />
       </Switch>
     </Fragment>

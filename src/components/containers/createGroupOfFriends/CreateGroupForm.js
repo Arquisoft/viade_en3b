@@ -5,7 +5,7 @@ import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { podHandler } from '../../../parser/PodHandler';
+//import { podHandler } from '../../../parser/PodHandler';
 import GroupOfFriends from '../../../entities/GroupOfFriends.js';
 
 export class CreateGroupForm extends Component{
@@ -44,11 +44,11 @@ export class CreateGroupForm extends Component{
 
     };
 
-    storeGroup = (group) => {
+   // storeGroup = (group) => {
 
-        podHandler.storeGroup(group)
+    //    podHandler.storeGroup(group)
 
-    }
+   // }
 
     render(){
 
@@ -97,3 +97,5 @@ export class CreateGroupForm extends Component{
     }
 
 }
+
+export default CreateGroupForm;
