@@ -1,0 +1,59 @@
+{
+    "welcome" : {
+        "welcome" : "Bienvenido a Viade.",
+        "info" : "El primer sistema para manejar rutas basado en la tecnología SOLID."
+    },
+    "button" : {
+        "next" : "SIGUIENTE",
+        "back" : "ATRÁS"
+    },
+    "navBar" : {
+
+        "myRoutes": "MIS RUTAS",
+        "myFriends": "MIS AMIGOS",
+        "signOut" : "DESCONECTARSE",
+        "signIN" : "INICIAR SESIÓN",
+        "signUp" : "REGISTRARSE"
+    },
+    "manageRoutes": {
+        "seeRoutes": "Ver Rutas",
+        "createRoute": "Crear Nueva",
+        "loadRoute": "Cargar Ruta",
+        "editRoute": "Editar Ruta",
+        "created" : "¡Ruta creada!",
+        "success" : "Tu nuevo itinerario ha sido creado y guardado correctamente",
+        "error" : "Ha sucedido un error durante esta operación",
+        "new" : {
+            "creation" : "Crea tu propia ruta",
+            "data" : "Datos básicos",
+            "map" : "Mapa",
+            "review" : "Revisa tu ruta",
+            "basicData" : {
+                "info" : "Por favor, introduce los siguientes datos para tu nueva ruta",
+                "name" : "Nombre",
+                "date" : "Fecha",
+                "description" : "Descripción",
+                "photos" : "fotos",
+                "videos" : "videos",
+                "isMandatory" : "Los campos marcados con (*) son obligatorios."
+            },
+            "mapData" : {
+                "info" : "Haz click sobre el mapa para añadir nuevos puntos de interés a tu ruta",
+                "howToUse" : "Puedes mover un punto arrastrándolo y puedes eliminarlo haciendo click sobre él"
+            },
+            "reviewData" : {
+                "info" : "Por favor, revisa todos los datos",
+                "name" : "Nombre",
+                "date" : "Fecha",
+                "description" : "Descripción",
+                "trackPoints" : "Puntos de Interés"
+            }
+        }
+      },
+    "manageFriends": {
+        "seeFriends": "Ver Amigos",
+        "addFriend": "Añadir Nuevo",
+        "deleteFriend": "Eliminar",
+        "createGroup": "Crear Nuevo Grupo"
+      }
+}
