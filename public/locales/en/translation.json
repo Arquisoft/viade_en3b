@@ -1,0 +1,59 @@
+{
+    "welcome" : {
+        "welcome" : "Welcome to Viade.",
+        "info" : "The first routes management system based on SOLID technology."
+    },
+    "button" : {
+        "next" : "NEXT",
+        "back" : "BACK"
+    },
+    "navBar" : {
+
+        "myRoutes": "MY ROUTES",
+        "myFriends": "MY FRIENDS",
+        "signOut" : "SIGN OUT",
+        "signIN" : "LOG IN",
+        "signUp" : "SIGN UP"
+    },
+    "manageRoutes": {
+        "seeRoutes": "See Routes",
+        "createRoute": "Create New",
+        "loadRoute": "Load Route",
+        "editRoute": "Edit Route",
+        "created" : "Route created!",
+        "success" : "Your new track was succesfully created and saved",
+        "error" : "There was an error during this operation",
+        "new" : {
+            "creation" : "Create your own route",
+            "data" : "Basic data",
+            "map" : "Map",
+            "review" : "Review your route",
+            "basicData" : {
+                "info" : "Please, introduce the following data for your new route",
+                "name" : "Name",
+                "date" : "Date",
+                "description" : "Description",
+                "photos" : "photos",
+                "videos" : "videos",
+                "isMandatory" : "Fields marked with (*) are mandatory."
+            },
+            "mapData" : {
+                "info" : "Click on the map to add trackpoints to your route",
+                "howToUse" : "You can move a point by dragging it and delete it just clicking on it"
+            },
+            "reviewData" : {
+                "info" : "Please, review all the data",
+                "name" : "Name",
+                "date" : "Date",
+                "description" : "Description",
+                "trackPoints" : "Track Points"
+            }
+        }
+      },
+    "manageFriends": {
+        "seeFriends": "See Friends",
+        "addFriend": "Add New",
+        "deleteFriend": "Delete",
+        "createGroup": "Create New Group"
+      }
+}
