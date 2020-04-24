@@ -54,6 +54,12 @@
         "seeFriends": "See Friends",
         "addFriend": "Add New",
         "deleteFriend": "Delete",
-        "createGroup": "Create New Group"
+        "createGroup": "Create New Group",
+        "group" : {
+            "info" : "Create a new group of friends",
+            "name" : "Name",
+            "friends" : "Pick a few friends!",
+            "create" : "CREATE"
+        }
       }
 }

@@ -54,6 +54,12 @@
         "seeFriends": "Ver Amigos",
         "addFriend": "Añadir Nuevo",
         "deleteFriend": "Eliminar",
-        "createGroup": "Crear Nuevo Grupo"
+        "createGroup": "Crear Nuevo Grupo",
+        "group" : {
+            "info" : "Crea un nuevo grupo de amigos",
+            "name" : "Nombre",
+            "friends" : "Selecciona algunos amigos!",
+            "create" : "CREAR"
+        }
       }
 }
