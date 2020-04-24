@@ -14,10 +14,18 @@ import NavBar from '../../graphic interface/NavBar';
 import Avatar from '@material-ui/core/Avatar';
 import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
 import { withStyles } from '@material-ui/styles';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 import GroupOfFriends from '../../../entities/GroupOfFriends.js';
-import { List } from '@material-ui/core';
-
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import ListItemText from '@material-ui/core/ListItemText';
+import Checkbox from '@material-ui/core/Checkbox';
+import IconButton from '@material-ui/core/IconButton';
+import CommentIcon from '@material-ui/icons/Comment';
 export class CreateGroupForm extends Component{
 
     constructor(){
@@ -67,6 +75,27 @@ export class CreateGroupForm extends Component{
             label = {`${item}`.split('.')[0].split('//')[1]}
             onClick={this.state.friends.push(item)}
         />;
+        
+
+    showFriends = (friend) =>
+        <ListItem role={undefined} dense button onClick={console.log("clicked over friend")}>
+            <ListItemIcon>
+            <Checkbox
+                edge="start"
+               
+                tabIndex={-1}
+                disableRipple
+                
+            />
+            </ListItemIcon>
+            <ListItemText primary={`${friend}`.split('.')[0].split('//')[1]} />
+            <ListItemSecondaryAction>
+            <IconButton edge="end" aria-label="comments">
+                <CommentIcon />
+            </IconButton>
+            </ListItemSecondaryAction>
+        </ListItem>
+    ;
 
     render(){
 
@@ -109,15 +138,34 @@ export class CreateGroupForm extends Component{
                             <Typography component="h1" variant="h4" align="center">
                                 Create a new group of friends
                             </Typography>
-                    
-                            <React.Fragment>
-                                {this.childrenTrimmed}
-                            </React.Fragment>
+                            
+                                                   
+                            <form className={classes.root} noValidate autoComplete="off">
+                                <div>
+                                <TextField required id="standard-required" label="Name" defaultValue="Introduce the name" />
+                                    {this.childrenTrimmed}
+                                </div>
+
+                                <List>
+                                    {this.showFriends}
+                                </List>
+
+                                <Button variant="contained" size="medium" color="primary" onClick={/*this.makeGroup*/ console.log("group created click")} className={classes.margin}>
+                                    Create
+                                </Button>
+                            </form>
+                            
+                           
                         </Paper>
                     </main>
                 </React.Fragment>
             </MuiThemeProvider>
 
+            /*
+             <React.Fragment>
+                                {this.childrenTrimmed}
+                            </React.Fragment>
+                            
             /* <React.Fragment>
                 <h2>
                     Create a new group of friends
