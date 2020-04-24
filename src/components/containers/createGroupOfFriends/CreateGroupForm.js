@@ -20,12 +20,15 @@ import Button from '@material-ui/core/Button';
 import GroupOfFriends from '../../../entities/GroupOfFriends.js';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+//import ListItemIcon from '@material-ui/core/ListItemIcon';
+//import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
-import IconButton from '@material-ui/core/IconButton';
-import CommentIcon from '@material-ui/icons/Comment';
+//import IconButton from '@material-ui/core/IconButton';
+//import CommentIcon from '@material-ui/icons/Comment';
+
+import FriendsCard from '../../graphic interface/FriendsCard'
+
 export class CreateGroupForm extends Component{
 
     constructor(){
@@ -79,7 +82,7 @@ export class CreateGroupForm extends Component{
 
     showFriends = (friend) =>
         <ListItem role={undefined} dense button onClick={console.log("clicked over friend")}>
-            <ListItemIcon>
+            
             <Checkbox
                 edge="start"
                
@@ -87,15 +90,19 @@ export class CreateGroupForm extends Component{
                 disableRipple
                 
             />
-            </ListItemIcon>
-            <ListItemText primary={`${friend}`.split('.')[0].split('//')[1]} />
-            <ListItemSecondaryAction>
-            <IconButton edge="end" aria-label="comments">
-                <CommentIcon />
-            </IconButton>
-            </ListItemSecondaryAction>
+            <ListItemText primary={`${friend}`} />
+            
         </ListItem>
     ;
+
+
+    childrenTrimmed = (item, index) =>
+    <Typography className={useStyles().pos} color="textSecondary"
+      align = "left" key={index}>
+        <a href = {item}>
+            {`${item}`.split('.')[0].split('//')[1]}
+        </a>
+    </Typography>;
 
     render(){
 
@@ -141,20 +148,19 @@ export class CreateGroupForm extends Component{
                             
                                                    
                             <form className={classes.root} noValidate autoComplete="off">
-                                <div>
-                                <TextField required id="standard-required" label="Name" defaultValue="Introduce the name" />
-                                    {this.childrenTrimmed}
-                                </div>
-
-                                <List>
-                                    {this.showFriends}
+                          
+                                <TextField required id="standard-required" label="Name" defaultValue="" />
+                                   
+                                <List src="user.friends">
+                                Pick a few friends!
+                                {this.childrenTrimmed}
                                 </List>
 
                                 <Button variant="contained" size="medium" color="primary" onClick={/*this.makeGroup*/ console.log("group created click")} className={classes.margin}>
                                     Create
                                 </Button>
-                            </form>
-                            
+
+                            </form>                            
                            
                         </Paper>
                     </main>
