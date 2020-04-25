@@ -16,8 +16,8 @@ For developing Viade we will be following the next strategy (the necessary reaso
 ** Authenticate users: link:https://github.com/solid/solid-auth-client[Solid-Auth-Client].
 ** Map display: link:https://leafletjs.com/[Leaflet].
 ** Parsers: 
-***link:https://github.com/elliotstokes/gpx-parse[GPX].
-***link:https://github.com/frogcat/ttl2jsonld[TTL].
+*** link:https://github.com/elliotstokes/gpx-parse[GPX to JsonLD].
+*** link:https://github.com/frogcat/ttl2jsonld[TTL to JsonLD].
 
 ==== Quality Goals
 
