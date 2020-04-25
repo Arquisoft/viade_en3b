@@ -55,7 +55,7 @@ export class DataForm extends Component {
                                     variant="inline"
                                     id="date"
                                     name="date"
-                                    format="MM/dd/yyyy"
+                                    format="dd/MM/yyyy"
                                     margin="normal"
                                     label="Date"
                                     value={values.date}
@@ -68,7 +68,6 @@ export class DataForm extends Component {
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
-                                required
                                 id="description"
                                 name="description"
                                 label="Description"
