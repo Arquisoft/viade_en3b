@@ -50,23 +50,17 @@ export default function RouteDetails(props) {
                                         <Grid item container className={classes.root} spacing={2} direction="column" >
                                             <Grid item>
                                                 <Typography className={classes.pos} >
-                                                    
+                                                    Date: {props.route.getDate().toDateString()}
                                                 </Typography>
                                             </Grid>
                                             <Grid item container spacing={1}>
                                                 <Grid item xs={6}>
-                                                    
-                                                </Grid>
-                                                <Grid item xs={6}>
-                                                    
+                                                    Distance: {Math.round(props.route.getTotalDistance()*1000)/1000} Km
                                                 </Grid>
                                             </Grid>
                                             <Grid item>
                                                 <Typography className={classes.pos} >
-                                                    Description:
-                                                </Typography>
-                                                <Typography className={classes.pos} >
-                                                    
+                                                    Description: {props.route.getDescription()}
                                                 </Typography>
                                             </Grid>
                                         </Grid>

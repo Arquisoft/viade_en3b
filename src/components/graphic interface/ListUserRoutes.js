@@ -3,11 +3,12 @@ import Grid from '@material-ui/core/Grid';
 import MyRouteCard from './MyRouteCard';
 import { LoggedIn } from '@solid/react';
 import cache from '../../cache/RoutesChache';
+import {loadAllRoutes} from '../../parser/RouteHandler';
 
 export class ListUserRoutes extends Component {
   constructor() {
     super();
-    this.state = {
+    this.state = { 
       routes: cache.getRoutesFromCache(),
     };
   }
