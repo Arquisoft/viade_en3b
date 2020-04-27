@@ -10,6 +10,7 @@ import "typeface-roboto";
 import MisRutas from './MisRutas.js';
 import MyFriends from './MyFriends.js'
 import logo1 from '../../assets/img/logo/logo1.svg';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 const NavBar = () => {
   const classes = useStyles();
@@ -28,6 +29,11 @@ const NavBar = () => {
             </LoggedIn>
           <LoggedOut><Button className={classes.menuButton} href={"#/register"} color="inherit">Sign up</Button></LoggedOut>
           <Login />
+          <Button>
+            <GitHubIcon style={{ color: "FFFFFF" }} fontSize="large"
+              onClick={() => window.location.href='https://github.com/Arquisoft/viade_en3b'}>
+            </GitHubIcon>
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

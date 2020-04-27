@@ -1,6 +1,8 @@
 import ParserJsonLdToRoute from "./ParserJsonLdToRoute";
+
 import ParserJsonLdToGroupOfFriends from "./ParserJsonLdToGroupOfFriends";
 //import ParserGroupsInTurtle from "./ParserGroupsInTurtle";
+import { findDOMNode } from "react-dom";
 
 const auth = require('solid-auth-client');
 const FC = require('solid-file-client');
@@ -47,29 +49,21 @@ class PodHandler {
         // return successCode;
     }
 
-    // async storeMedia(mediaList, callback = () => { }) {
-    //     if (!mediaList.length) {
-    //         return Promise.reject('No media to upload');
-    //     }
-    //     if (!validMediaType(mediaList)) {
-    //         return Promise.reject('Media must be image or video');
-    //     }
+    async storeMedia(mediaList, routename,callback = () => { }) {
+        if (!mediaList.length) {
+            return Promise.reject('No media to upload');
+        }
+        if (!validMediaType(mediaList)) {
+            return Promise.reject('Media must be image or video');
+        }
 
-    //     let url = this.defaultFolder + this.resourcesFolder;
+        let url = this.defaultFolder + this.resourcesFolder;
 
-    //     let buildPath = '';
-    //     Array.from(mediaList).forEach(file => {
-    //         buildPath = url + file.name;
-    //         this.storeMedia(buildPath, file, file.type, callback)
-    //     });
-    // }
-
-    storeMedia(url, data, contentType, callback) {
-        let response = fc.putFile(url, data, contentType);
-        response.then(
-            (response) => { callback(response.url, response); }
-            , (error) => { callback(null, error); }
-        );
+        let buildPath = '';
+        Array.from(mediaList).forEach(file => {
+            buildPath = url + routename + "@" + file.name ;
+            this.storeFile(buildPath,file, callback);
+        });
     }
 
     async findAllGroups(){
@@ -130,22 +124,22 @@ class PodHandler {
     }
 }
 
-// const mediaType = {
-//     image: /\.(jpe?g|gif|bmp|png|svg|tiff?)$/i,
-//     video: /\.(mp4|webm|ogg)$/i
-// }
+    const mediaType = {
+        image: /\.(jpe?g|gif|bmp|png|svg|tiff?)$/i,
+        video: /\.(mp4|webm|ogg)$/i
+    }
 
-// function validMediaType(mediaList) {
-//     let valid = true;
+    function validMediaType(mediaList) {
+        let valid = true;
 
-//     mediaList.forEach(file => {
-//         if (!(mediaType.image.test(file.name) || mediaType.video.test(file.name))) {
-//             valid = false;
-//         }
-//     });
+        mediaList.forEach(file => {
+            if (!(mediaType.image.test(file.name) || mediaType.video.test(file.name))) {
+                valid = false;
+            }
+        });
 
-//     return valid;
-// }
+        return valid;
+    }
 
 
 

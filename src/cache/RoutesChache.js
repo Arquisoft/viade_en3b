@@ -22,6 +22,7 @@ export default {
     getRoutesFromCache() {
         // console.log("ROUTES FROM CACHE");
         // console.log(this.routes);
+        this.getRoutesFromPod();
         return this.routes;
     },
     clear() {
