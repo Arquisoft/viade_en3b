@@ -1,4 +1,5 @@
 import ParserJsonLdToRoute from "./ParserJsonLdToRoute";
+import { findDOMNode } from "react-dom";
 
 const auth = require('solid-auth-client');
 const FC = require('solid-file-client');
@@ -37,29 +38,21 @@ class PodHandler {
         // return successCode;
     }
 
-    // async storeMedia(mediaList, callback = () => { }) {
-    //     if (!mediaList.length) {
-    //         return Promise.reject('No media to upload');
-    //     }
-    //     if (!validMediaType(mediaList)) {
-    //         return Promise.reject('Media must be image or video');
-    //     }
+    async storeMedia(mediaList, routename,callback = () => { }) {
+        if (!mediaList.length) {
+            return Promise.reject('No media to upload');
+        }
+        if (!validMediaType(mediaList)) {
+            return Promise.reject('Media must be image or video');
+        }
 
     //     let url = this.defaultFolder + this.resourcesFolder;
 
-    //     let buildPath = '';
-    //     Array.from(mediaList).forEach(file => {
-    //         buildPath = url + file.name;
-    //         this.storeMedia(buildPath, file, file.type, callback)
-    //     });
-    // }
-
-    storeMedia(url, data, contentType, callback) {
-        let response = fc.putFile(url, data, contentType);
-        response.then(
-            (response) => { callback(response.url, response); }
-            , (error) => { callback(null, error); }
-        );
+        let buildPath = '';
+        Array.from(mediaList).forEach(file => {
+            buildPath = url + routename + "@" + file.name ;
+            this.storeFile(buildPath,file, callback);
+        });
     }
 
     async findAllRoutes() {
