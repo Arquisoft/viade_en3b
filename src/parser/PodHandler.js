@@ -25,6 +25,7 @@ class PodHandler {
         this.resourcesFolder = "resources/"; // for photos and videos 
         this.commentsFolder = "comments/";
         this.addressBook = this.pod + "groups/"; // for friends' groups
+        this.notificationsURL = "sharedRoutes.json";
     }
 
     getRoutes
@@ -121,6 +122,32 @@ class PodHandler {
         // console.log(routes);
 
         return routes;
+    }
+
+    async findAllNotifications() {
+        let url = this.defaultFolder + this.notificationsURL;
+
+        var notifications = [];
+        
+        if (await fc.itemExists(url)) {
+            try {
+               let fileContent = await fc.readFile(url);
+                notifications = parser.parseNotifications(fileContent);
+
+            } catch (error) {
+                // console.log("##### ERROR #####");
+                // console.log(error);         // A full error response 
+                // console.log(error.status);  // Just the status code of the error
+                // console.log(error.message); // Just the status code and statusText
+            }
+        } else {
+            console.log("There is no notifications file");
+        }
+
+        // console.log("RUTAS");
+        // console.log(routes);
+
+        return notifications;
     }
 }
 

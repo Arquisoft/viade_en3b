@@ -25,6 +25,10 @@ export default function RouteDetails(props) {
         setValue(newValue);
       };
 
+    const shareRoute = () => {
+        console.log("Route shared!");
+    };
+
     return (
         <div>
             <Grid container className={classes.root} spacing={2}  direction="column" justify="center" alignItems="center">
@@ -51,6 +55,11 @@ export default function RouteDetails(props) {
                                     <CardContent>
                                         <Grid item container className={classes.root} spacing={2} direction="column" >
                                             <Grid item>
+                                                <Button onClick={shareRoute()}>
+                                                    <ShareIcon />
+                                                </Button>                                            
+                                            </Grid>
+                                            <Grid item>
                                                 <Typography className={classes.pos} >
                                                     Date: {props.route.getDate().toDateString()}
                                                 </Typography>
@@ -64,11 +73,6 @@ export default function RouteDetails(props) {
                                                 <Typography className={classes.pos} >
                                                     Description: {props.route.getDescription()}
                                                 </Typography>
-                                            </Grid>
-                                            <Grid item>
-                                                <Button>
-                                                    <ShareIcon />
-                                                </Button>                                            
                                             </Grid>
                                         </Grid>
                                     </CardContent>

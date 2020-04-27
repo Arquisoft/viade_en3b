@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import { MenuItem, Paper, Popper, Grow, MenuList, ListItemIcon, Typography } from '@material-ui/core';
+import { MenuItem, Paper, Popper, Grow, MenuList, Typography } from '@material-ui/core';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 
 const MyNotifications = () => {
@@ -10,6 +10,22 @@ const MyNotifications = () => {
 
     const handleToggle = () => {
         setOpen((prevOpen) => !prevOpen);
+    };
+
+
+    const notifications = []; // we will get notifications here somehow
+    const showNotifications = () => {
+        if(notifications.length < 1) {
+            return <MenuItem>
+                <Typography>Nobody has shared with you a new route :(</Typography>
+            </MenuItem>
+        } else {
+            notifications.forEach(notification => {
+                return <MenuItem>
+                    <Typography>{notification}</Typography>
+                </MenuItem>
+            });
+        }
     };
 
     return (
@@ -31,7 +47,8 @@ const MyNotifications = () => {
                     >
                         <Paper >
                             <MenuList >
-                                
+                                    <Typography>Check this out!</Typography>
+                                    {showNotifications()}
                             </MenuList>
                         </Paper>
                     </Grow>

@@ -1,7 +1,10 @@
 import { loadAllRoutes } from '../parser/RouteHandler';
+import { loadAllNotifications } from '../parser/NotificationHandler';
 
 export default {
     routes: [],
+    notifications: [],
+    sharedRoutes: [],
     selected: "",
     addRouteToCache(route) {
         if(route && !this.routes.find((obj) => route.name === obj.name)) {
@@ -28,5 +31,17 @@ export default {
     clear() {
         this.routes = [];
         this.selected = null;
+    },
+    async getNotificationFromPod() {
+        if (this.notifications.length === 0) {
+            this.notifications = await loadAllNotifications();
+        }
+        return this.notifications;
+    },
+    getNotificationFromCache() {
+        // console.log("ROUTES FROM CACHE");
+        // console.log(this.routes);
+        this.getNotificationFromPod();
+        return this.notifications;
     }
 };
