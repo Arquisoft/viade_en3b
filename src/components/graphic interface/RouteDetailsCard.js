@@ -3,10 +3,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import ElevationGraph from "./ElevationGraph"
 import DetailsMap from '../map/DetailsMap.js';
 import MediaTabBar from "./MediaTabBar";
+import ShareIcon from '@material-ui/icons/Share';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -62,6 +64,11 @@ export default function RouteDetails(props) {
                                                 <Typography className={classes.pos} >
                                                     Description: {props.route.getDescription()}
                                                 </Typography>
+                                            </Grid>
+                                            <Grid item>
+                                                <Button>
+                                                    <ShareIcon />
+                                                </Button>                                            
                                             </Grid>
                                         </Grid>
                                     </CardContent>

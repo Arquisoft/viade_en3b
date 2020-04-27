@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import { MenuItem, Paper, Popper, Grow, MenuList, ListItemIcon, Typography } from '@material-ui/core';
 import ListIcon from '@material-ui/icons/PeopleAlt';
 import AddGroupIcon from '@material-ui/icons/GroupAdd';
+import SharedRoutesIcon from '@material-ui/icons/PersonPinCircle';
 
 const MyFriends = () => {
     const [open, setOpen] = React.useState(false);
@@ -43,7 +44,14 @@ const MyFriends = () => {
                                     <ListItemIcon>
                                         <AddGroupIcon />
                                     </ListItemIcon>
-                                    <Typography>Create Group of Friends</Typography>
+                                    <Typography>Create New Group</Typography>
+                                </MenuItem>
+
+                                <MenuItem onClick={() =>  window.location.href='#/myroutes'}>
+                                    <ListItemIcon>
+                                        <SharedRoutesIcon />
+                                    </ListItemIcon>
+                                    <Typography>Shared Routes</Typography>
                                 </MenuItem>
 
                             </MenuList>
