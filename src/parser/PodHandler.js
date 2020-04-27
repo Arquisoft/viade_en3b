@@ -46,7 +46,7 @@ class PodHandler {
             return Promise.reject('Media must be image or video');
         }
 
-    //     let url = this.defaultFolder + this.resourcesFolder;
+        let url = this.defaultFolder + this.resourcesFolder;
 
         let buildPath = '';
         Array.from(mediaList).forEach(file => {
@@ -87,22 +87,22 @@ class PodHandler {
     }
 }
 
-// const mediaType = {
-//     image: /\.(jpe?g|gif|bmp|png|svg|tiff?)$/i,
-//     video: /\.(mp4|webm|ogg)$/i
-// }
+    const mediaType = {
+        image: /\.(jpe?g|gif|bmp|png|svg|tiff?)$/i,
+        video: /\.(mp4|webm|ogg)$/i
+    }
 
-// function validMediaType(mediaList) {
-//     let valid = true;
+    function validMediaType(mediaList) {
+        let valid = true;
 
-//     mediaList.forEach(file => {
-//         if (!(mediaType.image.test(file.name) || mediaType.video.test(file.name))) {
-//             valid = false;
-//         }
-//     });
+        mediaList.forEach(file => {
+            if (!(mediaType.image.test(file.name) || mediaType.video.test(file.name))) {
+                valid = false;
+            }
+        });
 
-//     return valid;
-// }
+        return valid;
+    }
 
 
 
