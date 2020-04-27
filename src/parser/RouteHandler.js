@@ -1,10 +1,10 @@
 import auth from 'solid-auth-client';
 import PodHandler from './PodHandler';
 
-export async function uploadMedia(media) {
+export async function uploadMedia(media, routename) {
     let session = await auth.currentSession();
     let storageHandler = new PodHandler(session);
-    await storageHandler.storeMedia(media, (urlInPod, response) => {
+    await storageHandler.storeMedia(media, routename,(urlInPod, response) => {
         let alertText = "";
         if (urlInPod === null) {
             alertText = "ERROR UPLOADING MEDIA"; // error
@@ -19,7 +19,11 @@ export async function uploadRoute(route, callback) {
     let session = await auth.currentSession();
     let storageHandler = new PodHandler(session);
     let fileName = route.getName() + "@" + route.getId() + ".jsonld";
+    let media = route.getMedia();
 
+    if(media.length){
+        uploadMedia(media, route.getName());
+    }
     // let successCode = -1; // -1 if error. 0 otherwise.
     storageHandler.storeRoute(fileName, route.getJsonLD(), (status) => {
         callback(status);

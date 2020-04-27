@@ -144,6 +144,10 @@ class Route {
                         "@id": "schema:author",
                         "@type": "@id"
                     },
+                    "date": {
+                        "@id": "schema:date",
+                        "@type": "xs:string"
+                    },
                     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
                     "schema": "http://schema.org/",
@@ -153,6 +157,7 @@ class Route {
                 "name": this.name,
                 "author": this.author,
                 "description": this.description,
+                "date": this.date.toDateString(),
                 "comments": this.comments,
                 "media": this.media,
                 "points": routePointsJson
