@@ -23,11 +23,11 @@ import ListItem from '@material-ui/core/ListItem';
 //import ListItemIcon from '@material-ui/core/ListItemIcon';
 //import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
-import Checkbox from '@material-ui/core/Checkbox';
+//import Checkbox from '@material-ui/core/Checkbox';
 //import IconButton from '@material-ui/core/IconButton';
 //import CommentIcon from '@material-ui/icons/Comment';
 
-import FriendsCard from '../../graphic interface/FriendsCard'
+//import FriendsCard from '../../graphic interface/FriendsCard'
 
 export class CreateGroupForm extends Component{
 
@@ -71,7 +71,7 @@ export class CreateGroupForm extends Component{
 
    // }
 
-   childrenTrimmed = (item) =>        
+/*    childrenTrimmed = (item) =>        
 
         <List
             
@@ -93,16 +93,18 @@ export class CreateGroupForm extends Component{
             <ListItemText primary={`${friend}`} />
             
         </ListItem>
-    ;
+    ; */
 
 
     childrenTrimmed = (item, index) =>
-    <Typography className={useStyles().pos} color="textSecondary"
+    <ListItem role={undefined} dense button onClick={console.log("clicked over friend")}>
+    <ListItemText className={useStyles().pos} color="textSecondary"
       align = "left" key={index}>
         <a href = {item}>
             {`${item}`.split('.')[0].split('//')[1]}
         </a>
-    </Typography>;
+    </ListItemText>
+    </ListItem>;
 
     render(){
 
