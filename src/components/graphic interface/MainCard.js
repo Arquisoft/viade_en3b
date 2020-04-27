@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import Divider from '@material-ui/core/Divider';
-import DemoMap from '../map/DemoMap.js'
+import DemoMap from '../map/DemoMap.js';
 
 const useStyles = makeStyles({
   root: {

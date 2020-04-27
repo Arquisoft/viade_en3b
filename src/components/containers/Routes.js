@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
-import Main  from "./main/Main.js";
 import Welcome  from "./welcome/Welcome.js";
 import PageNotFound from "./pagenotfound/PageNotFound.js";
 import Register from '../services/register/Register.js';

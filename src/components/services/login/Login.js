@@ -21,7 +21,7 @@ export class Login extends React.Component {
 
     logout(auth) {
         auth.logout();
-    };
+    }
 
     render() {
         return (
@@ -33,7 +33,7 @@ export class Login extends React.Component {
                     <Button variant="outlined" color="inherit" onClick={() => this.logout(auth)}>Sign out</Button>
                 </LoggedIn>
             </div>
-        )
+        );
     }
 }
 

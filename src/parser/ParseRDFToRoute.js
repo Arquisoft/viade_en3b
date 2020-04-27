@@ -30,7 +30,7 @@ class ParseRDFToRoute{
         var jsonArray = jsonRoute.getJSONArray("elements");
         var element = new RouteElement("", 0, 0, 0);
 
-        jsonArray.forEach(arrayElement => {
+        jsonArray.forEach((arrayElement) => {
             element.name = arrayElement.getString("name");
             element.elevation = arrayElement.getString("elevation");
             element.londitude = arrayElement.getString("longitude");
@@ -41,7 +41,7 @@ class ParseRDFToRoute{
         jsonArray = jsonRoute.getJSONArray("media");
         element = new Media("");
 
-        jsonArray.forEach(arrayElement => {
+        jsonArray.forEach((arrayElement) => {
             element.url = arrayElement.getString("url");
             media.push(element);
         });
@@ -49,7 +49,7 @@ class ParseRDFToRoute{
         jsonArray = jsonRoute.getJSONArray("comments");
         element = new Comment("");
 
-        jsonArray.forEach(arrayElement => {
+        jsonArray.forEach((arrayElement) => {
             element.text = arrayElement.getString("text");
             comments.push(element);
         });

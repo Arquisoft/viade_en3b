@@ -6,10 +6,6 @@ import GetAppIcon from '@material-ui/icons/GetApp';
 
 export class SuccessForm extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     download = (e) => {
         e.preventDefault();
         this.props.handleDownload();

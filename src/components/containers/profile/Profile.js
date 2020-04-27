@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { LoggedIn, LoggedOut, Value, List } from '@solid/react'
+import { LoggedIn, LoggedOut, Value, List } from '@solid/react';
 
 class Profile extends Component {  
     render() {

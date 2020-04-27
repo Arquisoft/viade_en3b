@@ -34,7 +34,7 @@ export default function CardRouteManagement() {
             <Button size="small">Share route</Button>
         </CardActions>
         <CardActions>
-            <Button size="small" onClick={() => console.log(new Example().parse())}>Add Mock route</Button>
+            {/* <Button size="small" onClick={() => console.log(new Example().parse())}>Add Mock route</Button> */}
         </CardActions>
       </Card>
     );

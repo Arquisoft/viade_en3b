@@ -1,8 +1,5 @@
 import Route from '../entities/Route.js';
-import Media from '../entities/Media.js';
-import Comment from '../entities/Comment.js';
 import RouteElement from '../entities/RouteElement.js';
-//import {LoadFromPod} from 'LoadFromPod.js';
 
 class ParserJsonLdToRoute {
     

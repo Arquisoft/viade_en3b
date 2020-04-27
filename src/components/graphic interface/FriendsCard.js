@@ -5,7 +5,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { List } from '@solid/react'
+import { List } from '@solid/react';
 
 const useStyles = makeStyles({
     root: {

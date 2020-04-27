@@ -16,11 +16,11 @@ export default class DemoMap extends Component {
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Polyline   positions={data.features.map(point => (
+        <Polyline   positions={data.features.map((point) => (
           [point.geometry.coordinates[0],point.geometry.coordinates[1]]
           ))} color='blue'/>
         
-        {data.features.map(point => (
+        {data.features.map((point) => (
         <Marker key={point.properties.POSITION} 
         position={[
             point.geometry.coordinates[0],

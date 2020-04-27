@@ -13,7 +13,7 @@ const theme = createMuiTheme(
             }
         }
     }
-)
+);
 
 ReactDOM.render(<MuiThemeProvider theme = {theme}><App /></MuiThemeProvider>, document.getElementById('root'));
 

@@ -26,23 +26,15 @@ const useStyles = makeStyles({
 });
 
 function getDate(){
-  let dates = ['2/4/2020', '12/3/2020', '1/4/2020', '6/3/2020', '22/2/2020']
-  let selected = Math.random() * (dates.length - 0) + 0;
+  let dates = ['2/4/2020', '12/3/2020', '1/4/2020', '6/3/2020', '22/2/2020'];
   let randomElement = dates[Math.floor(Math.random() * dates.length)];
-  console.log("SELECTED DATE: "+randomElement)
-  return randomElement;
-}
-
-function getDistance(){
-  let dist = ['3.63km', '6.3km', '25.4km', '7.96km', '5.42km']
-  let randomElement = dist[Math.floor(Math.random() * dist.length)];
-  console.log("SELECTED DIST: "+randomElement)
+  // console.log("SELECTED DATE: "+randomElement);
   return randomElement;
 }
 
 export default function MyRouteCard(props) {
   const classes = useStyles();
-  console.log(props.route);
+  // console.log(props.route);
   return (
     <Card elevation={5} className={classes.root}>
       <CardContent>
@@ -69,8 +61,7 @@ export default function MyRouteCard(props) {
 
           <Grid item xs={12} sm={5}>
             <Typography className={classes.pos} color="textSecondary">
-              {/* {props.route.getTotalDistance()} */}
-              {getDistance()}
+              {Math.round(props.route.getTotalDistance()*1000)/1000} Km
             </Typography>
           </Grid>
 

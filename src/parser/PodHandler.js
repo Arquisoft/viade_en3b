@@ -25,7 +25,7 @@ class PodHandler {
 
     storeRoute(fileName, routeJson, callback = () => { }) {
         let url = this.defaultFolder + this.routesFolder + fileName;
-        this.storeFile(url, routeJson, callback)
+        this.storeFile(url, routeJson, callback);
     }
 
     storeFile(url, data, callback) {
@@ -46,7 +46,7 @@ class PodHandler {
             return Promise.reject('Media must be image or video');
         }
 
-        let url = this.defaultFolder + this.resourcesFolder;
+    //     let url = this.defaultFolder + this.resourcesFolder;
 
         let buildPath = '';
         Array.from(mediaList).forEach(file => {
@@ -71,38 +71,38 @@ class PodHandler {
                 }
 
             } catch (error) {
-                console.log("##### ERROR #####")
-                console.log(error)         // A full error response 
-                console.log(error.status)  // Just the status code of the error
-                console.log(error.message) // Just the status code and statusText
+                // console.log("##### ERROR #####");
+                // console.log(error);         // A full error response 
+                // console.log(error.status);  // Just the status code of the error
+                // console.log(error.message); // Just the status code and statusText
             }
         } else {
             console.log("There is no routes directory");
         }
 
-        console.log("RUTAS")
-        console.log(routes);
+        // console.log("RUTAS");
+        // console.log(routes);
 
         return routes;
     }
 }
 
-const mediaType = {
-    image: /\.(jpe?g|gif|bmp|png|svg|tiff?)$/i,
-    video: /\.(mp4|webm|ogg)$/i
-}
+// const mediaType = {
+//     image: /\.(jpe?g|gif|bmp|png|svg|tiff?)$/i,
+//     video: /\.(mp4|webm|ogg)$/i
+// }
 
-function validMediaType(mediaList) {
-    let valid = true;
+// function validMediaType(mediaList) {
+//     let valid = true;
 
-    mediaList.forEach(file => {
-        if (!(mediaType.image.test(file.name) || mediaType.video.test(file.name))) {
-            valid = false;
-        }
-    });
+//     mediaList.forEach(file => {
+//         if (!(mediaType.image.test(file.name) || mediaType.video.test(file.name))) {
+//             valid = false;
+//         }
+//     });
 
-    return valid;
-}
+//     return valid;
+// }
 
 
 

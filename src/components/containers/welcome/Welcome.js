@@ -30,6 +30,6 @@ const Welcome = () => {
             </Grid>
         </div>
     );
-}
+};
 
 export default Welcome;

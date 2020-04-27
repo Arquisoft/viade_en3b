@@ -12,7 +12,7 @@ import ContactsOutlinedIcon from '@material-ui/icons/ContactsOutlined';
 import ContactsIcon from '@material-ui/icons/Contacts';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         minWidth: 275,
         margin: 50,

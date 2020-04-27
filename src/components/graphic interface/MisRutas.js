@@ -1,17 +1,15 @@
-import React from 'react'
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react';
 import Button from '@material-ui/core/Button';
-import { Link, MenuItem, Paper, Popper, Grow, MenuList, ListItemIcon, Typography } from '@material-ui/core';
+import { MenuItem, Paper, Popper, Grow, MenuList, ListItemIcon, Typography } from '@material-ui/core';
 import ListIcon from '@material-ui/icons/List';
 import EditLocationIcon from '@material-ui/icons/EditLocation';
 
 const MisRutas = () => {
-    const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const anchorRef = React.useRef(null);
 
     const handleToggle = () => {
-        setOpen(prevOpen => !prevOpen);
+        setOpen((prevOpen) => !prevOpen);
     };
 
     return (
@@ -25,7 +23,7 @@ const MisRutas = () => {
             >
                 My Routes
             </Button>
-            <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+            <Popper open={open} anchorEl={anchorRef.current} transition disablePortal>
                 {({ TransitionProps, placement }) => (
                     <Grow
                         {...TransitionProps}
@@ -34,14 +32,14 @@ const MisRutas = () => {
                         <Paper >
                             <MenuList >
 
-                                <MenuItem onClick={event => window.location.href='#/myroutes'}>
+                                <MenuItem onClick={() => window.location.href='#/myroutes'}>
                                     <ListItemIcon>
                                         <ListIcon />
                                     </ListItemIcon>
                                     <Typography>See routes</Typography>
                                 </MenuItem>
 
-                                <MenuItem onClick={event =>  window.location.href='#/newRoute'}>
+                                <MenuItem onClick={() =>  window.location.href='#/newRoute'}>
                                     <ListItemIcon>
                                         <EditLocationIcon />
                                     </ListItemIcon>
@@ -54,27 +52,7 @@ const MisRutas = () => {
                 )}
             </Popper>
         </div>
-    )
-}
+    );
+};
 
-const useStyles = makeStyles(theme => ({
-    root: {
-      flexGrow: 1,
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-    title: {
-      flexGrow: 1,
-      fontSize: 20,
-      letterSpacing: 1,
-    },
-    paper: {
-      marginRight: theme.spacing(2),
-    },
-    menu: {
-      width: 150,
-    }
-}));
-
-export default MisRutas
+export default MisRutas;
