@@ -22,8 +22,9 @@ const MyNotifications = () => {
                 <Typography>Nobody has shared with you a new route :(</Typography>
             </MenuItem>
         } else {
+            let content = [];
             notifications.forEach(notification => {
-                return <MenuItem>
+                content.push( <MenuItem>
                     <Typography>{notification}</Typography>
                     <Button onClick={acceptNotification(notification)}>
                         <CheckIcon />
@@ -31,8 +32,9 @@ const MyNotifications = () => {
                     <Button onClick={declineNotification(notification)}>
                         <CloseIcon />
                     </Button>
-                </MenuItem>
+                </MenuItem> );
             });
+            return content;
         }
     };
 
