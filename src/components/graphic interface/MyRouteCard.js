@@ -44,12 +44,12 @@ export default function MyRouteCard(props) {
               </Typography>
             </Link>
           </Grid>
-
+          {props.route.getDate().toDateString()!="Invalid Date"&&
           <Grid item xs={12} sm={5}>
             <Typography className={classes.pos} color="textSecondary">
               {props.route.getDate().toDateString()}
             </Typography>
-          </Grid>
+          </Grid>}
 
           <Grid item xs={12} sm={5}>
             <Typography className={classes.pos} color="textSecondary">
