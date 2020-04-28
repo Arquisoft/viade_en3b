@@ -37,3 +37,11 @@ export async function loadAllRoutes() {
     let loadedRoutes = storageHandler.findAllRoutes();
     return loadedRoutes;
 }
+
+export async function loadAllSharedRoutes(){
+    let session = await auth.currentSession();
+    let storageHandler = new PodHandler(session);
+
+    let loadedRoutes = storageHandler.findAllSharedRoutes();
+    return loadedRoutes;
+}

@@ -25,7 +25,8 @@ class PodHandler {
         this.resourcesFolder = "resources/"; // for photos and videos 
         this.commentsFolder = "comments/";
         this.addressBook = this.pod + "groups/"; // for friends' groups
-        this.notificationsURL = "sharedRoutes.json";
+        this.notificationsURL = "sharedRoutes.json"; // file for notifications
+        this.sharedRoutesFolder = "shared/"; // for sharing routes
     }
 
     getRoutes
@@ -123,6 +124,38 @@ class PodHandler {
 
         return routes;
     }
+
+     async findAllSharedRoutes() {
+        let url = this.defaultFolder + this.sharedRoutesFolder;
+
+        var routes = [];
+        
+        if (await fc.itemExists(url)) {
+            try {
+                let contents = await fc.readFolder(url);
+                let files = contents.files;
+
+                for (let i = 0; i < files.length; i++) {
+                    let fileContent = await fc.readFile(files[i].url);
+                    routes.push(parser.parseSharedRoute(fileContent));
+                }
+
+            } catch (error) {
+                // console.log("##### ERROR #####");
+                // console.log(error);         // A full error response 
+                // console.log(error.status);  // Just the status code of the error
+                // console.log(error.message); // Just the status code and statusText
+            }
+        } else {
+            console.log("There is no shared routes directory");
+        }
+
+        // console.log("RUTAS");
+        // console.log(routes);
+
+        return routes;
+    }
+
 
     async findAllNotifications() {
         let url = this.defaultFolder + this.notificationsURL;
