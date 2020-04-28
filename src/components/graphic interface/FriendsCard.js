@@ -6,6 +6,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { List } from '@solid/react';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItem from '@material-ui/core/ListItem';
 
 const useStyles = makeStyles({
     root: {
@@ -20,14 +22,26 @@ const useStyles = makeStyles({
 
 export default function FriendsManagement() {
     const classes = useStyles();
+    const selectedFriends = [];
 
+    const clickedFriend = (friend) => {
+      console.log("clicked!");
+        if(selectedFriends.includes(friend)){
+            selectedFriends.filter(function(ele){ return ele != friend; });
+        } else {
+            selectedFriends.push(friend);
+        }
+    }
+    
     const childrenTrimmed = (item, index) =>
-    <Typography className={classes.pos} color="textSecondary"
-      align = "left" key={index}>
-        <a href = {item}>
+    <ListItem onClick={clickedFriend(item)} key={item.toString()} >
+    <ListItemText className={classes.pos} color="textSecondary"
+      align = "left" key={index} >
+        
             {`${item}`.split('.')[0].split('//')[1]}
-        </a>
-    </Typography>;
+
+    </ListItemText>
+    </ListItem>;
   
     return (
       <Card elevation={5} className={classes.root}>
