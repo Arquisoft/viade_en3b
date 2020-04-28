@@ -1,16 +1,14 @@
 class RouteElement {
-    constructor(latitude, longitude, name, elevation) {
+    constructor(latitude, longitude, elevation) {
 
         this.latitude = latitude;
         this.longitude = longitude;
-        this.elevation = elevation;
-
-        if (name === undefined) {
-            this.name = "";
-        } else {
-            this.name = name;
+        if(elevation==undefined){
+            this.elevation = 0;
         }
-
+        else{
+            this.elevation = elevation;
+        }
     }
 
     getName() {

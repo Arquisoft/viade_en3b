@@ -5,6 +5,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import CommentsCard from "./CommentsCard";
+import ImgCarrusel from "./ImgCarrusel";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -33,7 +34,7 @@ export default function MediaTabBar(props) {
                 <CommentsCard route={props.route}></CommentsCard>
             </Typography>
             <Typography component="div" role="tabpanel" hidden={value !== 1}>
-                Media
+                <ImgCarrusel media = {props.route.getMedia()}></ImgCarrusel>
             </Typography>
         </div>
     );
