@@ -25,13 +25,6 @@ const useStyles = makeStyles({
   },
 });
 
-function getDate(){
-  let dates = ['2/4/2020', '12/3/2020', '1/4/2020', '6/3/2020', '22/2/2020'];
-  let randomElement = dates[Math.floor(Math.random() * dates.length)];
-  // console.log("SELECTED DATE: "+randomElement);
-  return randomElement;
-}
-
 export default function MyRouteCard(props) {
   const classes = useStyles();
   // console.log(props.route);
@@ -54,8 +47,7 @@ export default function MyRouteCard(props) {
 
           <Grid item xs={12} sm={5}>
             <Typography className={classes.pos} color="textSecondary">
-              {/* {props.route.getDate()} */}
-              {getDate()}
+              {props.route.getDate().toDateString()}
             </Typography>
           </Grid>
 
