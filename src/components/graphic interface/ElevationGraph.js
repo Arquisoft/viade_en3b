@@ -53,7 +53,6 @@ export default class ElevationGraph extends Component {
     
 
     render(){
-        console.log(this.data);
         return (
           <VictoryChart height={"200"}>
           <VictoryStack animate={{

@@ -1,5 +1,6 @@
 import { v4 as uuid } from "uuid";
 import RouteElement from "./RouteElement";
+import Media from "./Media";
 
 class Route {
 
@@ -94,7 +95,7 @@ class Route {
     }
 
     addMedia(media) {
-        this.media.push(media);
+        this.media.push(new Media(media.id,media.name));
     }
 
     addRouteElement(routeElement) {
@@ -109,12 +110,12 @@ class Route {
                 "@context": {
                     "@version": 1.1,
                     "comments": {
-                        "@container": "@list",
-                        "@id": "viade:comments"
+                        "@id": "viade:comments",
+                        "@type": "@id"
                     },
                     "description": {
                         "@id": "schema:description",
-                        "@type": "xs:string"
+                        "@type": "xsd:string"
                     },
                     "media": {
                         "@container": "@list",
@@ -122,7 +123,7 @@ class Route {
                     },
                     "name": {
                         "@id": "schema:name",
-                        "@type": "xs:string"
+                        "@type": "xsd:string"
                     },
                     "points": {
                         "@container": "@list",
@@ -130,23 +131,23 @@ class Route {
                     },
                     "latitude": {
                         "@id": "schema:latitude",
-                        "@type": "xs:double"
+                        "@type": "xsd:double"
                     },
                     "longitude": {
                         "@id": "schema:longitude",
-                        "@type": "xs:double"
+                        "@type": "xsd:double"
                     },
                     "elevation": {
                         "@id": "schema:elevation",
                         "@type": "xsd:double"
                     },
-                    "author": {
+                    "author":{
                         "@id": "schema:author",
                         "@type": "@id"
                     },
                     "date": {
-                        "@id": "schema:date",
-                        "@type": "xs:string"
+                        "@id": "schema:DateTime",
+                        "@type": "xsd:dateTime"
                     },
                     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",

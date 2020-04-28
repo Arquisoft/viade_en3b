@@ -23,6 +23,8 @@ export default function RouteDetails(props) {
         setValue(newValue);
       };
 
+      console.log(props.route);
+
     return (
         <div>
             <Grid container className={classes.root} spacing={2}  direction="column" justify="center" alignItems="center">

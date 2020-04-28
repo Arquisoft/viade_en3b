@@ -1,6 +1,7 @@
 class Media{
-    constructor(url){
-        this.url=url;
+    constructor(id,name){
+        this.id=id;
+        this.name=name;
     }
 }
 
