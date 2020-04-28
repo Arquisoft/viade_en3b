@@ -1,4 +1,4 @@
-import { loadAllRoutes } from '../parser/RouteHandler';
+import { loadAllRoutes, loadAllSharedRoutes } from '../parser/RouteHandler';
 import { loadAllNotifications } from '../parser/NotificationHandler';
 
 export default {
@@ -43,5 +43,22 @@ export default {
         // console.log(this.routes);
         this.getNotificationFromPod();
         return this.notifications;
+    },
+    removeNotification(notification){
+        var filteredNotifications = this.notifications.filter(function(value, index, arr){ return value != notification;});
+        this.notifications = filteredNotifications;
+    },
+    addSharedRoute(notification) {
+        this.getSharedRoutesFromPod();
+        this.sharedRoutes.push(notification);
+        this.removeNotification(notification);
+    },
+    async getSharedRoutesFromPod(){
+        if (this.sharedRoutes.length === 0) {
+            this.sharedRoutes = await loadAllSharedRoutes();
+            // console.log("SHARED ROUTES FROM POD (CACHE)");
+            // console.log(this.sharedRoutes);
+        }
+        return this.sharedRoutes;
     }
 };
