@@ -25,11 +25,20 @@ class PodHandler {
         this.resourcesFolder = "resources/"; // for photos and videos 
         this.commentsFolder = "comments/";
         this.addressBook = this.pod + "groups/"; // for friends' groups
+
+        this.sharedWithMe = "sharedRoutes/"; //folder for routes shared with a user
+        this.sharedWithMeMedia = "sharedMedia/"; //folder for routes shared with a user
+
         this.notificationsURL = "sharedRoutes.json"; // file for notifications
-        this.sharedRoutesFolder = "shared/"; // for sharing routes
+
     }
 
     getRoutes
+
+    shareRoute(fileName, routeJson, callback = () => {}){
+        let url = this.defaultFolder + this.sharedWithMe + fileName;
+        this.storeFile(url, routeJson, callback);
+    }
 
     storeRoute(fileName, routeJson, callback = () => { }) {
         let url = this.defaultFolder + this.routesFolder + fileName;
@@ -60,6 +69,23 @@ class PodHandler {
         }
 
         let url = this.defaultFolder + this.resourcesFolder;
+
+        let buildPath = '';
+        Array.from(mediaList).forEach(file => {
+            buildPath = url + routename + "@" + file.name ;
+            this.storeFile(buildPath,file, callback);
+        });
+    }
+
+    async shareMedia(mediaList, routename,callback = () => { }) {
+        if (!mediaList.length) {
+            return Promise.reject('No media to upload');
+        }
+        if (!validMediaType(mediaList)) {
+            return Promise.reject('Media must be image or video');
+        }
+
+        let url = this.defaultFolder + this.sharedWithMeMedia;
 
         let buildPath = '';
         Array.from(mediaList).forEach(file => {
@@ -126,7 +152,7 @@ class PodHandler {
     }
 
      async findAllSharedRoutes() {
-        let url = this.defaultFolder + this.sharedRoutesFolder;
+        let url = this.defaultFolder + this.sharedWithMe;
 
         var routes = [];
         
