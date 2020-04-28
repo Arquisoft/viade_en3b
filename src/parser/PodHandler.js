@@ -25,9 +25,16 @@ class PodHandler {
         this.resourcesFolder = "resources/"; // for photos and videos 
         this.commentsFolder = "comments/";
         this.addressBook = this.pod + "groups/"; // for friends' groups
+        this.sharedWithMe = "shared/"; //folder for routes shared with a user
     }
 
     getRoutes
+
+    shareRoute(fileName, routeJson, friendWebId, callback = () => {}){
+        let friendPod = friendWebId.split("profile")[0];
+        let url = friendPod + this.defaultFolder + this.sharedWithMe + fileName;
+        this.storeFile(url, routeJson, callback);
+    }
 
     storeRoute(fileName, routeJson, callback = () => { }) {
         let url = this.defaultFolder + this.routesFolder + fileName;
