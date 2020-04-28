@@ -15,14 +15,13 @@ class ParserJsonLdToRoute {
         
         let routeElements = this.parsePoints(points);
 
-        
         return new Route(name, description, routeElements, comments, media, new Date(date));
     }
 
     parsePoints(points) {
         let routeElements = [];
         for(var i = 0; i < points.length; i++ ){
-            routeElements.push(new RouteElement(points[i].latitude, points[i].longitude));
+            routeElements.push(new RouteElement(points[i].latitude, points[i].longitude,points[i].elevation));
         }
         return routeElements;
     }
