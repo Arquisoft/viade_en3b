@@ -1,4 +1,4 @@
-import { loadAllRoutes, shareRoutes, loadAllSharedRoutes } from '../parser/RouteHandler';
+import { loadAllRoutes, shareRoute, loadAllSharedRoutes } from '../parser/RouteHandler';
 import { loadAllNotifications } from '../parser/NotificationHandler';
 
 export default {
@@ -49,7 +49,7 @@ export default {
         this.notifications = filteredNotifications;
     },
     addSharedRoute(notification) {
-        shareRoutes(notification);
+        shareRoute(notification);
        // this.getSharedRoutesFromPod();
        // this.sharedRoutes.push(notification);
         this.removeNotification(notification);
