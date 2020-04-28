@@ -8,7 +8,8 @@ import { LoggedOut, LoggedIn } from '@solid/react';
 import { Link } from '@material-ui/core';
 import "typeface-roboto";
 import MisRutas from './MisRutas.js';
-import MyFriends from './MyFriends.js'
+import MyFriends from './MyFriends.js';
+import MyNotifications from './MyNotifications.js';
 import logo1 from '../../assets/img/logo/logo1.svg';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
@@ -24,6 +25,7 @@ const NavBar = () => {
           </Link>
 
           <LoggedIn>
+            <MyNotifications />
             <MisRutas />
             <MyFriends />
             </LoggedIn>

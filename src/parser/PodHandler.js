@@ -25,8 +25,12 @@ class PodHandler {
         this.resourcesFolder = "resources/"; // for photos and videos 
         this.commentsFolder = "comments/";
         this.addressBook = this.pod + "groups/"; // for friends' groups
+
         this.sharedWithMe = "sharedRoutes/"; //folder for routes shared with a user
         this.sharedWithMeMedia = "sharedMedia/"; //folder for routes shared with a user
+
+        this.notificationsURL = "sharedRoutes.json"; // file for notifications
+
     }
 
     getRoutes
@@ -145,6 +149,64 @@ class PodHandler {
         // console.log(routes);
 
         return routes;
+    }
+
+     async findAllSharedRoutes() {
+        let url = this.defaultFolder + this.sharedWithMe;
+
+        var routes = [];
+        
+        if (await fc.itemExists(url)) {
+            try {
+                let contents = await fc.readFolder(url);
+                let files = contents.files;
+
+                for (let i = 0; i < files.length; i++) {
+                    let fileContent = await fc.readFile(files[i].url);
+                    routes.push(parser.parseSharedRoute(fileContent));
+                }
+
+            } catch (error) {
+                // console.log("##### ERROR #####");
+                // console.log(error);         // A full error response 
+                // console.log(error.status);  // Just the status code of the error
+                // console.log(error.message); // Just the status code and statusText
+            }
+        } else {
+            console.log("There is no shared routes directory");
+        }
+
+        // console.log("RUTAS");
+        // console.log(routes);
+
+        return routes;
+    }
+
+
+    async findAllNotifications() {
+        let url = this.defaultFolder + this.notificationsURL;
+
+        var notifications = [];
+        
+        if (await fc.itemExists(url)) {
+            try {
+               let fileContent = await fc.readFile(url);
+                notifications = parser.parseNotifications(fileContent);
+
+            } catch (error) {
+                // console.log("##### ERROR #####");
+                // console.log(error);         // A full error response 
+                // console.log(error.status);  // Just the status code of the error
+                // console.log(error.message); // Just the status code and statusText
+            }
+        } else {
+            console.log("There is no notifications file");
+        }
+
+        // console.log("RUTAS");
+        // console.log(routes);
+
+        return notifications;
     }
 }
 
