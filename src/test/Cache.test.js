@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, toBeEmpty } from '@testing-library/react';
-import cache from './RoutesChache';
+import cache from '../cache/RoutesChache';
 import  Route from '../entities/Route';
 import  RouteElement from '../entities/RouteElement';
 import assert from 'assert';

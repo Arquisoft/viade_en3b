@@ -1,5 +1,5 @@
 import React from 'react';
-import RouteElement from './RouteElement';
+import RouteElement from '../entities/RouteElement';
 import assert from 'assert';
 
 test('points are created correctly',() => {

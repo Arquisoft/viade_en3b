@@ -1,7 +1,7 @@
 import React from 'react';
-import Route from './Route';
-import RouteElement from './RouteElement';
-import Comment from './Comment';
+import Route from '../entities/Route';
+import RouteElement from '../entities/RouteElement';
+import Comment from '../entities/Comment';
 import assert from 'assert';
 
 test('route is created correctly', () =>{
