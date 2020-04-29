@@ -5,7 +5,7 @@ import  Route from '../entities/Route';
 import  RouteElement from '../entities/RouteElement';
 import assert from 'assert';
 
-const rElement = new RouteElement(47.0, 47.0, "mock name", 0);
+const rElement = new RouteElement(47.0, 47.0, 0);
 var points = [];
 points.push(rElement);
 const route = new Route("testingCache", "mock description", points, [], [], new Date()); 
