@@ -1,10 +1,15 @@
 import ParserJsonLdToRoute from "./ParserJsonLdToRoute";
+
+import ParserJsonLdToGroupOfFriends from "./ParserJsonLdToGroupOfFriends";
+//import ParserGroupsInTurtle from "./ParserGroupsInTurtle";
 import { findDOMNode } from "react-dom";
 
 const auth = require('solid-auth-client');
 const FC = require('solid-file-client');
 const fc = new FC(auth);
 const parser = new ParserJsonLdToRoute();
+const parseGroups = new ParserJsonLdToGroupOfFriends();
+//const groupsParser = new ParserGroupsInTurtle();
 
 class PodHandler {
 
@@ -19,6 +24,7 @@ class PodHandler {
         this.routesFolder = "routes/";
         this.resourcesFolder = "resources/"; // for photos and videos 
         this.commentsFolder = "comments/";
+        this.addressBook = this.pod + "groups/"; // for friends' groups
     }
 
     getRoutes
@@ -26,6 +32,11 @@ class PodHandler {
     storeRoute(fileName, routeJson, callback = () => { }) {
         let url = this.defaultFolder + this.routesFolder + fileName;
         this.storeFile(url, routeJson, callback);
+    }
+
+    storeGroup(group){
+        let url = this.addressBook;
+        this.storeFile(url, group);
     }
 
     storeFile(url, data, callback) {
@@ -53,6 +64,32 @@ class PodHandler {
             buildPath = url + routename + "@" + file.name ;
             this.storeFile(buildPath,file, callback);
         });
+    }
+
+    async findAllGroups(){
+        let url = this.addressBook;
+        var groups = [];
+        if (await fc.itemExists(url)) {
+            try {
+                let contents = await fc.readFolder(url);
+                let files = contents.files;
+
+                for (let i = 0; i < files.length; i++) {
+                    // let fileContent = await fc.readFile(files[i].url);
+                    // groups.push(groupsParser.parse(fileContent));
+                    //groups.push(groupsParser.parse(files[i].url));
+                    groups.push(parseGroups.parse(files[i].url));
+                }
+
+            } catch (error) {
+                // console.log("##### ERROR #####");
+                // console.log(error);         // A full error response 
+                // console.log(error.status);  // Just the status code of the error
+                // console.log(error.message); // Just the status code and statusText
+            }
+        } else {
+            console.log("There is no address-book directory");
+        }
     }
 
     async findAllRoutes() {
