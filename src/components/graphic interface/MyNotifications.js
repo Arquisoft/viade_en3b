@@ -26,10 +26,10 @@ const MyNotifications = () => {
             notifications.forEach(notification => {
                 content.push( <MenuItem>
                     <Typography>{notification}</Typography>
-                    <Button onClick={acceptNotification(notification)}>
+                    <Button onClick={() => acceptNotification(notification)}>
                         <CheckIcon />
                     </Button>
-                    <Button onClick={declineNotification(notification)}>
+                    <Button onClick={() => declineNotification(notification)}>
                         <CloseIcon />
                     </Button>
                 </MenuItem> );

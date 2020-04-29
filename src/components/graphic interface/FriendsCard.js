@@ -9,6 +9,8 @@ import { List } from '@solid/react';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItem from '@material-ui/core/ListItem';
 
+import storeNewNotification from '../../parser/NotificationHandler'
+
 const useStyles = makeStyles({
     root: {
       minWidth: 275,
@@ -20,21 +22,20 @@ const useStyles = makeStyles({
     },
   });
 
-export default function FriendsManagement() {
+export default function FriendsManagement(route) {
     const classes = useStyles();
-    const selectedFriends = [];
 
     const clickedFriend = (friend) => {
       console.log("clicked!");
-        if(selectedFriends.includes(friend)){
-            selectedFriends.filter(function(ele){ return ele != friend; });
-        } else {
-            selectedFriends.push(friend);
-        }
+        storeNewNotification(friend, route);
     }
     
     const childrenTrimmed = (item, index) =>
-    <ListItem onClick={clickedFriend(item)} key={item.toString()} >
+    <ListItem key={item.toString()} >
+    <Button variant="contained" size="small" color="primary" 
+      onClick={ () => clickedFriend(item)}>
+      Share
+    </Button>
     <ListItemText className={classes.pos} color="textSecondary"
       align = "left" key={index} >
         

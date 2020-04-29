@@ -94,6 +94,25 @@ class PodHandler {
         });
     }
 
+    async storeNewNotification(route) {
+        let url = this.defaultFolder + this.notificationsURL;
+        
+        if (await fc.itemExists(url)) {
+            try {
+               let fileContent = await fc.readFile(url);
+               fileContent.routes.push(route);
+               this.storeFile(url, fileContent);
+            }  catch (error) {
+                // console.log("##### ERROR #####");
+                // console.log(error);         // A full error response 
+                // console.log(error.status);  // Just the status code of the error
+                // console.log(error.message); // Just the status code and statusText
+            }
+        } else {
+            console.log("There is no notifications file");
+        }
+    }
+
     async findAllGroups(){
         let url = this.addressBook;
         var groups = [];
@@ -200,6 +219,7 @@ class PodHandler {
                 // console.log(error.message); // Just the status code and statusText
             }
         } else {
+            this.storeFile(url);
             console.log("There is no notifications file");
         }
 

@@ -8,3 +8,8 @@ export async function loadAllNotifications() {
     let loadedNotifications = storageHandler.findAllNotifications();
     return loadedNotifications;
 }
+
+export default async function storeNewNotification(friend, route){
+        let storageHandler = new PodHandler(friend);
+        storageHandler.storeNewNotification(route);
+}
