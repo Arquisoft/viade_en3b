@@ -71,12 +71,12 @@ export class MapForm extends Component {
                     </Alert>
                 </Snackbar>
 
-                <Typography variant="h6" gutterBottom>
+                <Typography variant="h6" gutterBottom data-testid="addPtsMsg">
                     Click on the map to add trackpoints to your route
                 </Typography>
 
                 <form onSubmit={this.next}>
-                    <EditableMap ref={this.points} openNotif={this.openNotif} />
+                    <EditableMap ref={this.points} openNotif={this.openNotif}/>
 
                     <Grid container spacing={3} style={{ marginTop: 12 }}>
                         <Button

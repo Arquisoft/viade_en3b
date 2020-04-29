@@ -58,6 +58,7 @@ export class DataForm extends Component {
                                     format="dd/MM/yyyy"
                                     margin="normal"
                                     label="Date"
+                                    data-testid="date"
                                     value={values.date}
                                     onChange={this.handleDateChange}
                                     KeyboardButtonProps={{
@@ -71,6 +72,7 @@ export class DataForm extends Component {
                                 id="description"
                                 name="description"
                                 label="Description"
+                                data-testid="descr"
                                 multiline
                                 fullWidth
                                 defaultValue={values.description}
