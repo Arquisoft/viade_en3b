@@ -27,13 +27,13 @@ export default function FriendsManagement(route) {
 
     const clickedFriend = (friend) => {
       console.log("clicked!");
-        storeNewNotification(friend, route);
+        storeNewNotification(friend.split("profile")[0], route);
     }
     
     const childrenTrimmed = (item, index) =>
     <ListItem key={item.toString()} >
     <Button variant="contained" size="small" color="primary" 
-      onClick={ () => clickedFriend(item)}>
+      onClick={ () => clickedFriend(item.toString())}>
       Share
     </Button>
     <ListItemText className={classes.pos} color="textSecondary"
@@ -47,16 +47,13 @@ export default function FriendsManagement(route) {
     return (
       <Card elevation={5} className={classes.root}>
           <CardContent>
-        <Typography variant="h5" component="h2">
-          Friends
+        <Typography variant="h5" component="h3">
+          Share with any friend you want!
         </Typography>
         <List src = "user.friends"
             children = {childrenTrimmed} >
         </List>
       </CardContent>
-        <CardActions>
-            <Button size="small">Add friend</Button>
-        </CardActions>
       </Card>
     );
   }

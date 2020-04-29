@@ -35,8 +35,8 @@ class PodHandler {
 
     getRoutes
 
-    shareRoute(friend, fileName, routeJson, callback = () => {}){
-        let url = friend.split("profile")[0] + "viade/" + this.sharedWithMe + fileName;
+    shareRoute(fileName, routeJson, callback = () => {}){
+        let url = this.defaultFolder + this.sharedWithMe + fileName;
         this.storeFile(url, routeJson, callback);
     }
 
@@ -94,8 +94,8 @@ class PodHandler {
         });
     }
 
-    async storeNewNotification(route) {
-        let url = this.defaultFolder + this.notificationsURL;
+    async storeNewNotification(friend, route) {
+        let url = friend + "viade/" + this.notificationsURL;
         
         if (await fc.itemExists(url)) {
             try {
