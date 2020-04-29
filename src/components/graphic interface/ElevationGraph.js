@@ -50,7 +50,6 @@ function getChartData(routeElements){
   }
 
 function isShown(routeElements){
-  console.log(routeElements)
   for (let i = 0; i < routeElements.length; i++) {
     if(routeElements[i].y!=0){
       return true;
@@ -63,7 +62,6 @@ export default class ElevationGraph extends Component {
     data = getChartData(this.props.data);
     show = isShown(this.data);
     render(){
-        console.log(this.data);
         return (
           <Container>
             {this.show&&

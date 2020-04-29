@@ -31,6 +31,7 @@ class RouteElement {
         return {
             "latitude": this.latitude,
             "longitude": this.longitude,
+            "elevation":this.elevation,
         };
     }
 }

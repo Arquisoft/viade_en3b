@@ -38,6 +38,11 @@ class Route {
         } else {
             this.routeElements = generateRouteElements(routeElements);
         }
+        if (media[0] instanceof Media) {
+            this.media = media;
+        } else {
+            this.media = filesToMedia(media);
+        }
     }
 
     getId() {
@@ -105,6 +110,8 @@ class Route {
     getJsonLD() {
         let routePointsJson = [];
         this.routeElements.forEach((p) => routePointsJson.push(p.toJsonLatLng()));
+        let mediaJson = [];
+        this.media.forEach((m) => mediaJson.push(m.toJsonMedia(this.name)));
         return JSON.stringify(
             {
                 "@context": {
@@ -160,7 +167,7 @@ class Route {
                 "description": this.description,
                 "date": this.date.toDateString(),
                 "comments": this.comments,
-                "media": this.media,
+                "media": mediaJson,
                 "points": routePointsJson
             }
         );
@@ -178,6 +185,11 @@ function generateRouteElements(points) {
     points.forEach((p) => routeElements.push(new RouteElement(p.lat, p.lng)));
     return routeElements;
 }
+
+function filesToMedia(files){
+    return files.map((m)=>(new Media(m.name,m.name)));
+}
+
 function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
         var R = 6371; // Radius of the earth in km
         var dLat = deg2rad(lat2-lat1);  // deg2rad below
