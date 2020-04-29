@@ -3,26 +3,26 @@
 
 [%header, cols=2]
 |===
-|Issue
+|Limitation
 |Explanation
 
-|Lack of time
-|The amount of work required for this course project (7.5 hours per week) may prove problematic.
-Even though the project is planned around the amount of time we have, it could end up as too large if we consider coordinating between ourselves consumes extra time.
+|Time
+|The time to devote to the project itself and learning about the new tecnologies is limited to the duration of the course.
 
 |Licenses
 |We have limited resources, and some of the licenses that could be interesting to try are not included in the ones provided by our studen accounts.
-Still, the software itself is free, so this could be considered a minor inconvenience.
-
-|Study materials
-|There are a lot of technologies on this course that are new to us, and require us to find courses and books to study them.
-There are some materials about them for free, but of course the best books and courses are locked behind a paywall.
-
-|Coordination issues
-|The problems that may come from working with other people, distributing the tasks and making code understandable by others somehow also limits the development of the project.
 
 |Use of React Framework
-|As we have no previous knowledge of React, its compulsory use limits using the web deveolpment techniques we are used to
+|The use of this JavaScript framework is a requirement of the project
+
+|Solid
+|As part of the decentralized  nature of this project
+
+|Arc42
+|It is used for the documentation
+
+|GitHub
+|Where our project will be allocate and the team will coordinate
 |===
 
 
