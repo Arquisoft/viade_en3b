@@ -22,9 +22,12 @@ The objective of Viade is to give users a platform where they can share their ta
 ==== Developers: 
 
 * link:https://github.com/CarmenVigo[Carmen Vigo Rodríguez.]
-* link:https://github.com/MiguelCuestaM[Miguel Cuesta Martínez.]
 * link:https://github.com/UO264850[Lucía Megido García.]
 * link:https://github.com/ElenaRodriguezRio[Elena Rodríguez Río.]
+
+.Former Developers
+* link:https://github.com/MiguelCuestaM[Miguel Cuesta Martínez.]
+* link:https://github.com/PabloCanalSuarez[Pablo Cañal Suárez.]
 
 === Quality Goals
 
@@ -43,8 +46,8 @@ The objective of Viade is to give users a platform where they can share their ta
 [options="header",cols="1,2,2"]
 |===
 |Role/Name|Description|Expectations
-| link:https://github.com/labra[Jose Emilio Labra] | He marks the developers work during the project and gives considerations about how it will be done | A well-formed application, accomplishing the requirements that were proposed.
+| Teachers | They mark the developers work during the project and give considerations about how it will be done | A well-formed application, accomplishing the requirements that were proposed.
 | Developers | The workforce of this project will develop the main system while understanding the constraints and requests of the client. | End with a good, usable, stable application, that represents the efforts we put during the project.
 | End Users | People who will use the final application. The system must suit the main goals for the users to have the best experience. | Have an intuitive, fluid and easy use of the Viade system.
-| SOLID Devs and link:https://github.com/timbl[Tim Berners-Lee] | They provide the main technology in which the application is based | They are interested in the best results possible of the project, as any work could be helpful as feedback of the SOLID technology.
+| SOLID Devs | They provide the main technology in which the application is based | They are interested in the best results possible of the project, as any work could be helpful as feedback of the SOLID technology.
 |===
