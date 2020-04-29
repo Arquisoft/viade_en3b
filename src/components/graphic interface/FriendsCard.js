@@ -26,8 +26,8 @@ export default function FriendsManagement(route) {
     const classes = useStyles();
 
     const clickedFriend = (friend) => {
-      console.log("clicked!");
-        storeNewNotification(friend.split("profile")[0], route);
+     // console.log("clicked!");
+       // storeNewNotification(friend.split("profile")[0], route);
     }
     
     const childrenTrimmed = (item, index) =>

@@ -33,13 +33,6 @@ const MyFriends = () => {
                         <Paper >
                             <MenuList >
 
-                                <MenuItem onClick={() => window.location.href='#/seeFriends'}>
-                                    <ListItemIcon>
-                                        <ListIcon />
-                                    </ListItemIcon>
-                                    <Typography>See Friends</Typography>
-                                </MenuItem>
-
                                 <MenuItem onClick={() =>  window.location.href='#/newGroup'}>
                                     <ListItemIcon>
                                         <AddGroupIcon />
