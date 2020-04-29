@@ -18,23 +18,24 @@ export class SuccessForm extends Component {
                     <Grid item xs={12} sm={2}>
                         <DirectionsWalkIcon fontSize="large" style={{
                             fill: "orange", width: 65,
-                            height: 65
-                        }} />
+                            height: 65,
+                        }} data-testid="icon"/>
                     </Grid>
                     <Grid>
                         <Grid item xs={12} sm={6}>
-                            <Typography variant="h5" gutterBottom>
+                            <Typography variant="h5" data-testid="textCreated" gutterBottom>
                                 Route created
                         </Typography>
                         </Grid>
                         <Grid item xs={12}>
-                            <Typography variant="subtitle1">
+                            <Typography variant="subtitle1" data-testid="textSuccessful">
                                 Your new track was succesfully created and saved
                         </Typography>
                         </Grid>
                     </Grid>
                     <Tooltip title="Download" arrow>
                         <IconButton
+                            data-testid="download"
                             variant="contained"
                             color="primary"
                             style={{
