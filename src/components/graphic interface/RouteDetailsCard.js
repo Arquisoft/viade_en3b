@@ -28,6 +28,7 @@ export default function RouteDetails(props) {
     const shareRoute = () => {
         console.log("Route shared!");
         // que te lleve a see friends
+   //      href={"#/ShareRoute/" + props.route.getId()}
     };
 
     return (
@@ -56,7 +57,7 @@ export default function RouteDetails(props) {
                                     <CardContent>
                                         <Grid item container className={classes.root} spacing={2} direction="column" >
                                             <Grid item>
-                                                <Button onClick={ () => shareRoute()}>
+                                                <Button href={"#/ShareRoute/" + props.route.getId()}>
                                                     <ShareIcon />
                                                 </Button>                                            
                                             </Grid>

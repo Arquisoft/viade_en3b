@@ -10,6 +10,6 @@ export async function loadAllNotifications() {
 }
 
 export default async function storeNewNotification(friend, route){
-        let storageHandler = new PodHandler(friend);
-        storageHandler.storeNewNotification(route);
+        let storageHandler = new PodHandler(await auth.currentSession());
+        storageHandler.storeNewNotification(friend, route);
 }

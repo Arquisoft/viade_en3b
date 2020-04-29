@@ -8,6 +8,7 @@ import RouteDetails from './routes/RouteDetails.js';
 import NewRouteForm from "./newrouteform/NewRouteForm.js";
 import CreateGroupForm from "./createGroupOfFriends/CreateGroupForm.js";
 import FriendsManagement from "../graphic interface/FriendsCard.js";
+import FriendsCard from "../graphic interface/FriendsCard.js";
 
 const Routes = () => (
   <HashRouter>
@@ -19,7 +20,8 @@ const Routes = () => (
         <Route exact path="/myroutes" component={UserRoutes} />
         <Route exact path="/register" component={Register}/>
         <Route exact path="/newRoute" component={NewRouteForm}/>
-        <Route exact path="/RouteDetails/:id" component={RouteDetails}/>
+        <Route exact path="/RouteDetails/:id" component={RouteDetails}/>        
+        <Route exact path="/ShareRoute/:id" component={FriendsCard}/>
         <Route exact path="/seeFriends" component={FriendsManagement}/>
         <Route exact path="/newGroup" component={CreateGroupForm}/>
         <Redirect to="/404" />
