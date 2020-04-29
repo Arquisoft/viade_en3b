@@ -1,11 +1,11 @@
 import React from 'react';
 import { render, toBeEmpty } from '@testing-library/react';
-import cache from './RoutesChache';
+import cache from '../cache/RoutesChache';
 import  Route from '../entities/Route';
 import  RouteElement from '../entities/RouteElement';
 import assert from 'assert';
 
-const rElement = new RouteElement(47.0, 47.0, "mock name", 0);
+const rElement = new RouteElement(47.0, 47.0, 0);
 var points = [];
 points.push(rElement);
 const route = new Route("testingCache", "mock description", points, [], [], new Date()); 
