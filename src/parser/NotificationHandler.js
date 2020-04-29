@@ -9,7 +9,12 @@ export async function loadAllNotifications() {
     return loadedNotifications;
 }
 
-export default async function storeNewNotification(friend, route){
+export async function storeNewNotification(friend, route){
         let storageHandler = new PodHandler(await auth.currentSession());
         storageHandler.storeNewNotification(friend, route);
+}
+
+export default async function storeNewRoute(friend, route){
+     let storageHandler = new PodHandler(await auth.currentSession());
+        storageHandler.shareRouteWithFriend(friend, route);
 }

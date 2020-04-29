@@ -9,7 +9,7 @@ import { List } from '@solid/react';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItem from '@material-ui/core/ListItem';
 
-import storeNewNotification from '../../parser/NotificationHandler'
+import storeNewRoute from '../../parser/NotificationHandler';
 
 const useStyles = makeStyles({
     root: {
@@ -27,12 +27,13 @@ export default function FriendsManagement(route) {
 
     const clickedFriend = (friend) => {
      // console.log("clicked!");
+     //storeNewRoute(friend.split("profile")[0], route);
        // storeNewNotification(friend.split("profile")[0], route);
     }
     
     const childrenTrimmed = (item, index) =>
     <ListItem key={item.toString()} >
-    <Button variant="contained" size="small" color="primary" 
+    <Button variant="contained" size="small" color="secondary" 
       onClick={ () => clickedFriend(item.toString())}>
       Share
     </Button>
@@ -53,6 +54,10 @@ export default function FriendsManagement(route) {
         <List src = "user.friends"
             children = {childrenTrimmed} >
         </List>
+        <Button onClick={() => window.location.href='#/myroutes'} 
+          variant="contained" size="small" color="primary"  >
+          Finish
+        </Button>
       </CardContent>
       </Card>
     );

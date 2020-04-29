@@ -40,13 +40,7 @@ const MyFriends = () => {
                                     <Typography>Create New Group</Typography>
                                 </MenuItem>
 
-                                <MenuItem onClick={() =>  window.location.href='#/myroutes'}>
-                                    <ListItemIcon>
-                                        <SharedRoutesIcon />
-                                    </ListItemIcon>
-                                    <Typography>Shared Routes</Typography>
-                                </MenuItem>
-
+                                
                             </MenuList>
                         </Paper>
                     </Grow>

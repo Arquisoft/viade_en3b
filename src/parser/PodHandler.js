@@ -40,6 +40,11 @@ class PodHandler {
         this.storeFile(url, routeJson, callback);
     }
 
+    shareRouteWithFriend(friend, route, callback = () => {}){
+        let url = friend + "viade/" + this.sharedWithMe + this.pod;
+        this.storeFile(url, route, callback);
+    }
+
     storeRoute(fileName, routeJson, callback = () => { }) {
         let url = this.defaultFolder + this.routesFolder + fileName;
         this.storeFile(url, routeJson, callback);
