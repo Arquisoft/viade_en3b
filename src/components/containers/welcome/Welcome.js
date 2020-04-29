@@ -18,13 +18,13 @@ const Welcome = () => {
                 style={{ marginTop: '30vh' }}
             >
                 <Grid item xs={3} style={{marginBottom: '2vh'}}>
-                    <img src={logo1} alt="Viade Logo" style={{ height: '10vh', width: '10vh' }} />
+                    <img src={logo1} alt="Viade Logo" style={{ height: '10vh', width: '10vh' }} data-testid="logo"/>
                 </Grid>
 
                 <Grid item xs={3}>
-                    <Typography style={{ marginBottom: '10px' }} variant="h4" color="inherit" align="center">Welcome to Viade.</Typography>
+                    <Typography style={{ marginBottom: '10px' }} variant="h4" color="inherit" align="center" data-testid="welcome">Welcome to Viade.</Typography>
                     <Divider />
-                    <Typography style={{ marginTop: '10px' }} variant="body1" color="inherit" align="center">The first routes management system based on SOLID technology.</Typography>
+                    <Typography style={{ marginTop: '10px' }} variant="body1" color="inherit" align="center" data-testid="routes">The first routes management system based on SOLID technology.</Typography>
                 </Grid>
 
             </Grid>

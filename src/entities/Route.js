@@ -1,5 +1,6 @@
 import { v4 as uuid } from "uuid";
 import RouteElement from "./RouteElement";
+import Media from "./Media";
 
 class Route {
 
@@ -36,6 +37,11 @@ class Route {
             this.routeElements = routeElements;
         } else {
             this.routeElements = generateRouteElements(routeElements);
+        }
+        if (media[0] instanceof Media) {
+            this.media = media;
+        } else {
+            this.media = filesToMedia(media);
         }
     }
 
@@ -94,7 +100,7 @@ class Route {
     }
 
     addMedia(media) {
-        this.media.push(media);
+        this.media.push(new Media(media.id,media.name));
     }
 
     addRouteElement(routeElement) {
@@ -104,17 +110,19 @@ class Route {
     getJsonLD() {
         let routePointsJson = [];
         this.routeElements.forEach((p) => routePointsJson.push(p.toJsonLatLng()));
+        let mediaJson = [];
+        this.media.forEach((m) => mediaJson.push(m.toJsonMedia(this.name)));
         return JSON.stringify(
             {
                 "@context": {
                     "@version": 1.1,
                     "comments": {
-                        "@container": "@list",
-                        "@id": "viade:comments"
+                        "@id": "viade:comments",
+                        "@type": "@id"
                     },
                     "description": {
                         "@id": "schema:description",
-                        "@type": "xs:string"
+                        "@type": "xsd:string"
                     },
                     "media": {
                         "@container": "@list",
@@ -122,7 +130,7 @@ class Route {
                     },
                     "name": {
                         "@id": "schema:name",
-                        "@type": "xs:string"
+                        "@type": "xsd:string"
                     },
                     "points": {
                         "@container": "@list",
@@ -130,23 +138,23 @@ class Route {
                     },
                     "latitude": {
                         "@id": "schema:latitude",
-                        "@type": "xs:double"
+                        "@type": "xsd:double"
                     },
                     "longitude": {
                         "@id": "schema:longitude",
-                        "@type": "xs:double"
+                        "@type": "xsd:double"
                     },
                     "elevation": {
                         "@id": "schema:elevation",
                         "@type": "xsd:double"
                     },
-                    "author": {
+                    "author":{
                         "@id": "schema:author",
                         "@type": "@id"
                     },
                     "date": {
-                        "@id": "schema:date",
-                        "@type": "xs:string"
+                        "@id": "schema:DateTime",
+                        "@type": "xsd:dateTime"
                     },
                     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
@@ -159,7 +167,7 @@ class Route {
                 "description": this.description,
                 "date": this.date.toDateString(),
                 "comments": this.comments,
-                "media": this.media,
+                "media": mediaJson,
                 "points": routePointsJson
             }
         );
@@ -177,6 +185,11 @@ function generateRouteElements(points) {
     points.forEach((p) => routeElements.push(new RouteElement(p.lat, p.lng)));
     return routeElements;
 }
+
+function filesToMedia(files){
+    return files.map((m)=>(new Media(m.name,m.name)));
+}
+
 function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
         var R = 6371; // Radius of the earth in km
         var dLat = deg2rad(lat2-lat1);  // deg2rad below

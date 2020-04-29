@@ -46,6 +46,7 @@ export class ReviewForm extends Component {
                                 id="name"
                                 name="name"
                                 label="Name"
+                                data-testid="name"
                                 fullWidth
                                 defaultValue={values.name}
                                 variant="filled"
@@ -58,6 +59,7 @@ export class ReviewForm extends Component {
                                 id="date"
                                 name="date"
                                 label="Date"
+                                data-testid="date"
                                 fullWidth
                                 defaultValue={date}
                                 variant="filled"
@@ -70,6 +72,7 @@ export class ReviewForm extends Component {
                                 id="description"
                                 name="description"
                                 label="Description"
+                                data-testid="description"
                                 multiline
                                 fullWidth
                                 defaultValue={values.description}
@@ -84,6 +87,7 @@ export class ReviewForm extends Component {
                                 id="mapPoint"
                                 name="mapPoint"
                                 label="Track Points"
+                                data-testid="trackPoints"
                                 multiline
                                 fullWidth
                                 defaultValue={this.getPointsText(values.points)}

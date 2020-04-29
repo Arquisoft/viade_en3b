@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { render } from "react-dom";
 import { VictoryScatter, VictoryPortal, VictoryArea, VictoryStack, VictoryGroup, VictoryChart} from "victory";
+import { Container } from '@material-ui/core';
 
 function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
     var R = 6371; // Radius of the earth in km
@@ -48,31 +49,41 @@ function getChartData(routeElements){
     return data;
   }
 
+function isShown(routeElements){
+  for (let i = 0; i < routeElements.length; i++) {
+    if(routeElements[i].y!=0){
+      return true;
+    }
+  }
+  return false;
+}
+
 export default class ElevationGraph extends Component {
     data = getChartData(this.props.data);
-    
-
+    show = isShown(this.data);
     render(){
-        console.log(this.data);
         return (
-          <VictoryChart height={"200"}>
-          <VictoryStack animate={{
-                    duration: 2000,
-                    onLoad: { duration: 1000 }
-                    }} 
-                    colorScale={["1FB494"]}>
-            <VictoryGroup
-              data = {this.data}
-            >
-              <VictoryArea/>
-              <VictoryPortal>
-                <VictoryScatter
-                  style={{ data: { fill: "black" } }}
-                />
-              </VictoryPortal>
-            </VictoryGroup>
-          </VictoryStack>
-        </VictoryChart>
+          <Container>
+            {this.show&&
+            <VictoryChart height={"200"}>
+              <VictoryStack animate={{
+                        duration: 2000,
+                        onLoad: { duration: 1000 }
+                        }} 
+                        colorScale={["1FB494"]}>
+                <VictoryGroup
+                  data = {this.data}
+                >
+                  <VictoryArea/>
+                  <VictoryPortal>
+                    <VictoryScatter
+                      style={{ data: { fill: "black" } }}
+                    />
+                  </VictoryPortal>
+                </VictoryGroup>
+              </VictoryStack>
+            </VictoryChart>}
+          </Container>
         );
     }
 }

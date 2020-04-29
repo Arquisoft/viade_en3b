@@ -12,7 +12,7 @@ import NavBar from '../../graphic interface/NavBar';
 import Avatar from '@material-ui/core/Avatar';
 import FilterHdrIcon from '@material-ui/icons/FilterHdr';
 import SuccessForm from '../stepper/success/SuccessForm';
-import { withStyles } from '@material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Route from '../../../entities/Route';
 import { uploadRoute } from '../../../parser/RouteHandler';
 import MuiAlert from '@material-ui/lab/Alert';
@@ -263,6 +263,7 @@ function getStepContent(step,
             throw new Error('Unknown step ' + step);
     }
 }
+
 
 const useStyles = (theme) => ({
     layout: {
