@@ -56,7 +56,6 @@ export default function RouteDetails(props) {
                                 <Card elevation={5} className={classes.root}>
                                     <CardContent>
                                         <Grid item container className={classes.root} spacing={2} direction="column" >
-                                            {props.route.getDate().toDateString()!="Invalid Date"&&
                                             <Grid item>
                                                 <Button href={"#/ShareRoute/" + props.route.getId()}>
                                                     <ShareIcon />
@@ -66,7 +65,7 @@ export default function RouteDetails(props) {
                                                 <Typography className={classes.pos} >
                                                     Date: {props.route.getDate().toDateString()}
                                                 </Typography>
-                                            </Grid>}
+                                            </Grid>
                                             <Grid item container spacing={1}>
                                                 <Grid item xs={6}>
                                                     Distance: {Math.round(props.route.getTotalDistance()*1000)/1000} Km
