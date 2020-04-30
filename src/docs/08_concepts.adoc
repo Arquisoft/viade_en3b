@@ -3,7 +3,9 @@
 
 === Routes
 
-The information stored, and showed in our application will be mostly about routes. A route represents a trajectory formed by different points on the real world. 
+The information stored, and showed in our application will be mostly about routes.
+
+A route is a logic entity, independent from the format in which it is stored and the attributes that it contains, that represent a trajectory formed by different points on the real world. 
 
 Routes can be stored and loaded from the Pod of each user independently of which application has created them. That is because, thanks to the link:https://github.com/Arquisoft/viadeSpec[ViadeSpec], we have defined an specification that grants interoperability with other route management systems.
 
