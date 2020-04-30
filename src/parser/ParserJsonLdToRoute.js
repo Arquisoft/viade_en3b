@@ -26,6 +26,24 @@ class ParserJsonLdToRoute {
         }
         return routeElements;
     }
+
+    parseNotifications(file){    
+        var content = JSON.parse( file );
+        var routes = content.routes;
+
+        var notifications = this.getContent(routes);
+
+        return notifications;
+    }
+
+    getContent(routes){
+        var notifications = [];
+        for(var i = 0; i < routes.length ; i++){
+            notifications.push(routes[i]);
+        }
+        return notifications;
+    }
+
 }
 
 export default ParserJsonLdToRoute;

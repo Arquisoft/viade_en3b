@@ -3,10 +3,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import ElevationGraph from "./ElevationGraph"
 import DetailsMap from '../map/DetailsMap.js';
 import MediaTabBar from "./MediaTabBar";
+import ShareIcon from '@material-ui/icons/Share';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -23,7 +25,11 @@ export default function RouteDetails(props) {
         setValue(newValue);
       };
 
-      console.log(props.route);
+    const shareRoute = () => {
+        console.log("Route shared!");
+        // que te lleve a see friends
+   //      href={"#/ShareRoute/" + props.route.getId()}
+    };
 
     return (
         <div>
@@ -51,6 +57,11 @@ export default function RouteDetails(props) {
                                     <CardContent>
                                         <Grid item container className={classes.root} spacing={2} direction="column" >
                                             {props.route.getDate().toDateString()!="Invalid Date"&&
+                                            <Grid item>
+                                                <Button href={"#/ShareRoute/" + props.route.getId()}>
+                                                    <ShareIcon />
+                                                </Button>                                            
+                                            </Grid>
                                             <Grid item>
                                                 <Typography className={classes.pos} >
                                                     Date: {props.route.getDate().toDateString()}

@@ -108,32 +108,32 @@ export class CreateGroupForm extends Component{
 
         const { classes } = this.props;
 
-        
-        /* const classes = this.useStyles();
-        const [checked, setChecked] = React.useState(false);
-
-        const changeFriends = (event) => {
-
-            setChecked(event.target.checked);
-            this.setState({friends : event.target.value}); 
-            
-        } 
-
-        const childrenTrimmed = (item) =>        
-
-            <Checkbox
-                checked={checked}
-                value = {this.state.friends}
-                label = {`${item}`.split('.')[0].split('//')[1]}
-                onChange={changeFriends}
-                inputProps={{ 'aria-label': 'primary checkbox' }}
-            />; */
-
-        
-
         return(
 
-            <MuiThemeProvider>
+             <MuiThemeProvider>
+                <React.Fragment>
+                    <NavBar />
+                    <main className={classes.layout}>
+                        <Paper className={classes.paper}>
+                            <Avatar className={classes.avatar}>
+                                <SupervisedUserCircleIcon fontSize="large" />
+                            </Avatar>
+
+                            <Typography component="h1" variant="h4" align="center">
+                                Create a new group of friends
+                            </Typography>
+                            
+                                                   
+                            <Typography color="primary" component="h1" variant="h6" align="center">
+                                We are working hard on developing this functionality for a future version of ViaDe.
+                            </Typography>                            
+                           
+                        </Paper>
+                    </main>
+                </React.Fragment>
+            </MuiThemeProvider>
+
+           /*  <MuiThemeProvider>
                 <React.Fragment>
                     <NavBar />
                     <main className={classes.layout}>
@@ -156,7 +156,7 @@ export class CreateGroupForm extends Component{
                                 {this.childrenTrimmed}
                                 </List>
 
-                                <Button variant="contained" size="medium" color="primary" onClick={/*this.makeGroup*/ console.log("group created click")} className={classes.margin}>
+                                <Button variant="contained" size="medium" color="primary" onClick={() => this.makeGroup } className={classes.margin}>
                                     Create
                                 </Button>
 
@@ -165,33 +165,7 @@ export class CreateGroupForm extends Component{
                         </Paper>
                     </main>
                 </React.Fragment>
-            </MuiThemeProvider>
-
-            /*
-             <React.Fragment>
-                                {this.childrenTrimmed}
-                            </React.Fragment>
-                            
-            /* <React.Fragment>
-                <h2>
-                    Create a new group of friends
-                </h2>
-                <form>
-                    <label>
-                        Name: 
-                        <input type="text" value={this.state.name} onChange={this.changeName} />
-                    </label>
-                    <FormControl component="fieldset" className={this.useStyles().formControl}>
-                        <FormLabel component="legend">Friends in your POD</FormLabel>
-                        <FormGroup>
-                            <FormControlLabel
-                                friends = {this.childrenTrimmed}
-                            />          
-                        </FormGroup>
-                    </FormControl>
-                </form>
-                <button onClick={this.makeGroup}>Create</button>
-            </React.Fragment> */
+            </MuiThemeProvider> */
         );
     }
 

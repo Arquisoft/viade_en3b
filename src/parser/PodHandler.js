@@ -25,9 +25,25 @@ class PodHandler {
         this.resourcesFolder = "resources/"; // for photos and videos 
         this.commentsFolder = "comments/";
         this.addressBook = this.pod + "groups/"; // for friends' groups
+
+        this.sharedWithMe = "sharedRoutes/"; //folder for routes shared with a user
+        this.sharedWithMeMedia = "sharedMedia/"; //folder for routes shared with a user
+
+        this.notificationsURL = "sharedRoutes.json"; // file for notifications
+
     }
 
     getRoutes
+
+    shareRoute(fileName, routeJson, callback = () => {}){
+        let url = this.defaultFolder + this.sharedWithMe + fileName;
+        this.storeFile(url, routeJson, callback);
+    }
+
+    shareRouteWithFriend(friend, route, callback = () => {}){
+        let url = friend + "viade/" + this.sharedWithMe + this.pod;
+        this.storeFile(url, route, callback);
+    }
 
     storeRoute(fileName, routeJson, callback = () => { }) {
         let url = this.defaultFolder + this.routesFolder + fileName;
@@ -64,6 +80,42 @@ class PodHandler {
             buildPath = url + routename + "@" + file.name ;
             this.storeFile(buildPath,file, callback);
         });
+    }
+
+    async shareMedia(mediaList, routename,callback = () => { }) {
+        if (!mediaList.length) {
+            return Promise.reject('No media to upload');
+        }
+        if (!validMediaType(mediaList)) {
+            return Promise.reject('Media must be image or video');
+        }
+
+        let url = this.defaultFolder + this.sharedWithMeMedia;
+
+        let buildPath = '';
+        Array.from(mediaList).forEach(file => {
+            buildPath = url + routename + "@" + file.name ;
+            this.storeFile(buildPath,file, callback);
+        });
+    }
+
+    async storeNewNotification(friend, route) {
+        let url = friend + "viade/" + this.notificationsURL;
+        
+        if (await fc.itemExists(url)) {
+            try {
+               let fileContent = await fc.readFile(url);
+               fileContent.routes.push(route);
+               this.storeFile(url, fileContent);
+            }  catch (error) {
+                // console.log("##### ERROR #####");
+                // console.log(error);         // A full error response 
+                // console.log(error.status);  // Just the status code of the error
+                // console.log(error.message); // Just the status code and statusText
+            }
+        } else {
+            console.log("There is no notifications file");
+        }
     }
 
     async findAllGroups(){
@@ -121,6 +173,65 @@ class PodHandler {
         // console.log(routes);
 
         return routes;
+    }
+
+     async findAllSharedRoutes() {
+        let url = this.defaultFolder + this.sharedWithMe;
+
+        var routes = [];
+        
+        if (await fc.itemExists(url)) {
+            try {
+                let contents = await fc.readFolder(url);
+                let files = contents.files;
+
+                for (let i = 0; i < files.length; i++) {
+                    let fileContent = await fc.readFile(files[i].url);
+                    routes.push(parser.parseSharedRoute(fileContent));
+                }
+
+            } catch (error) {
+                // console.log("##### ERROR #####");
+                // console.log(error);         // A full error response 
+                // console.log(error.status);  // Just the status code of the error
+                // console.log(error.message); // Just the status code and statusText
+            }
+        } else {
+            console.log("There is no shared routes directory");
+        }
+
+        // console.log("RUTAS");
+        // console.log(routes);
+
+        return routes;
+    }
+
+
+    async findAllNotifications() {
+        let url = this.defaultFolder + this.notificationsURL;
+
+        var notifications = [];
+        
+        if (await fc.itemExists(url)) {
+            try {
+               let fileContent = await fc.readFile(url);
+                notifications = parser.parseNotifications(fileContent);
+
+            } catch (error) {
+                // console.log("##### ERROR #####");
+                // console.log(error);         // A full error response 
+                // console.log(error.status);  // Just the status code of the error
+                // console.log(error.message); // Just the status code and statusText
+            }
+        } else {
+            this.storeFile(url);
+            console.log("There is no notifications file");
+        }
+
+        // console.log("RUTAS");
+        // console.log(routes);
+
+        return notifications;
     }
 }
 
