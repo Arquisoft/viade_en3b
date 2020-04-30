@@ -7,7 +7,7 @@ import Comment from '../entities/Comment';
 import Route from '../entities/Route';
 import cache from '../cache/RoutesChache';
 
-test('route is created correctly', () =>{
+test('routes are listed correctly', () =>{
     const rElement = new RouteElement(47.0, 47.0, 0); 
     const comment1 = new Comment("This route is great");
     const comment2 = new Comment("This route is horrible");

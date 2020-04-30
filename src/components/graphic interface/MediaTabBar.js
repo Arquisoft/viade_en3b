@@ -26,8 +26,8 @@ export default function MediaTabBar(props) {
         <div>
             <AppBar position="static" >
                 <Tabs value={value} onChange={handleChange} >
-                    <Tab label="Comments" />
-                    <Tab label="Media" />
+                    <Tab data-testid="comms" label="Comments" />
+                    <Tab data-testid="media" label="Media" />
                 </Tabs>
             </AppBar>
             <Typography component="div" role="tabpanel" hidden={value !== 0}>

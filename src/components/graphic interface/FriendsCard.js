@@ -32,15 +32,15 @@ export default function FriendsManagement() {
     return (
       <Card elevation={5} className={classes.root}>
           <CardContent>
-        <Typography variant="h5" component="h2">
+        <Typography data-testid="title" variant="h5" component="h2">
           Friends
         </Typography>
-        <List src = "user.friends"
+        <List data-testid="friends" src = "user.friends"
             children = {childrenTrimmed} >
         </List>
       </CardContent>
         <CardActions>
-            <Button size="small">Add friend</Button>
+            <Button data-testid="add" size="small">Add friend</Button>
         </CardActions>
       </Card>
     );
