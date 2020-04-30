@@ -2,14 +2,9 @@
 
 
 == Deployment View
-Viade is a descentralized system where the information from the users is independent from the application.
-
-.Groups
-A group is composed by two or more users. When a user sends information to the group the other members are able to visualize it.
-
-image:07_deployment.PNG["Group interaction"]
-
 === Infrastructure Level 1
+Viade is a browser application, which means that it only requires:
 
-.To Do
-...
+* Solid's server: where the user's pod (and all its data) is stored.
+* GitHub Pages server: the web hosting service where viade is deployed.
+* Any web browser: we recommend using Chrome or Firefox because they are the ones used during development.

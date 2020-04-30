@@ -19,7 +19,7 @@ We will contemplate two kind of scenarios:
 |2 | Usability | A user must be able to use the application in an intuitive way. | High
 |3 | Performance | The system must be able to follow in realtime the route a user is doing. | Medium
 |4 | Performance | When finished, a route must be shared within 30 seconds with the user's friends. | High
-|5 | Availability | A user can search all his friend's routes in any moment. | Medium
+|5 | Availability | A user can search all the routes his friends have shared with him in any moment. | Medium
 |6 | Availability | If a user doesn't have Internet connection when doing a route, he will be able to upload the route when connection is restored. | Low
 |7 | Security | The application must prevent any user's data leak. | Low
 |8 | Scalability | If number of users increase, the application's performance must be the same. | Medium

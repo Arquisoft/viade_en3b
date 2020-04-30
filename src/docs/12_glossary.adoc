@@ -11,15 +11,21 @@
 | Pods     
     | Personal Online DataStore, accessible from the web. Where the information about the user is stored. 
     | link:https://solid.inrupt.com/get-a-solid-pod[Get yout own Pod]
-| React     
+| ViadeSpec
+| Linked Data specification developed during the course of Software Architecture for making our apps interoperable.
+| link:https://github.com/Arquisoft/viadeSpec[See repository]
+|React     
     | A JavaScript library for creating user interfaces. 
     | link:https://reactjs.org/[React's web page]
-| Inrupt     
+| Json-LD
+| A lightweight Linked Data format that is easy for humans to read and write. 
+| link:https://json-ld.org/[Learn more]
+|Linked Data
+| Structured data which is interlinked with other data so it becomes more useful through semantic queries.
+| link:https://en.wikipedia.org/wiki/Linked_data[Read more] 
+|Inrupt     
     | Team of developers, designers, and business people who have been working to ensure Solid is becoming robust, feature-rich, and increasingly ready for wide-scale adoption. 
     | link:https://inrupt.com/[Inrupt's web page]
-| MVC   
-    | Software Design Pattern commonly used to implement user interfaces, data and business logic.
-    | link:https://www.codecademy.com/articles/mvc[Know MVC better]
 | Scrum 
     | Framework for effective team collaboration on complex products 
     | link:https://www.scrum.org/resources/what-is-scrum[Learn more]

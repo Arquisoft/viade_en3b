@@ -13,17 +13,14 @@ We talked about the decisions we have made at section four (Solution Strategy), 
  |Not a programming language we are used to.
 |Solid
  |Protects user's privacy. Develop without harvesting massive amounts of data.
- |The scarce sources of documentation.
+ |The scarce sources of documentation. The low performance retrieving data.
 |React
  |Efficient update and render of the UI.
- |Library of a language we are not used to (JavaScript).
- |NodeJS
+ |Coupling of the logic and the interface.
+|NodeJS
  |Fast, efficient and nonblocking. 
  |Uses only JavaScript.
- |MVC
- |Separation of concepts and code reusability.
- |React does not follow this pattern.
 |Github
  |The version-controll system we are used to. Issue tracker, wiki, etc.
- |As we are working on a public repository, other teams might copy our work.
+ |Conflits may arise.
 |=======
