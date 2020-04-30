@@ -39,25 +39,25 @@ export default function MyRouteCard(props) {
 
           <Grid item xs={12} >
             <Link underline='none' href={"#/RouteDetails/" + props.route.getId()}>
-              <Typography className={classes.link} variant="h5" component="h2">
+              <Typography data-testid="name" className={classes.link} variant="h5" component="h2">
                 {props.route.getName()}
               </Typography>
             </Link>
           </Grid>
           {props.route.getDate().toDateString()!="Invalid Date"&&
           <Grid item xs={12} sm={5}>
-            <Typography className={classes.pos} color="textSecondary">
+            <Typography data-testid="date"  className={classes.pos} color="textSecondary">
               {props.route.getDate().toDateString()}
             </Typography>
           </Grid>}
 
           <Grid item xs={12} sm={5}>
-            <Typography className={classes.pos} color="textSecondary">
+            <Typography data-testid="dtc"  className={classes.pos} color="textSecondary">
               {Math.round(props.route.getTotalDistance()*1000)/1000} Km
             </Typography>
           </Grid>
 
-          <Button variant='outlined'
+          <Button data-testid="btn" variant='outlined'
             // style={{ color: 'white', background: 'black' }} 
             href={"#/RouteDetails/" + props.route.getId()}
             color="inherit"

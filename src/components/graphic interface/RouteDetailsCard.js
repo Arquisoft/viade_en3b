@@ -31,7 +31,7 @@ export default function RouteDetails(props) {
                 <Grid  item container className={classes.root} xs={10} spacing={2}  direction="column" justify="center" alignItems="center">
                     <Grid  item container className={classes.root} spacing={2} direction="column" justify="center" alignItems="center">
                         <Grid item xs={12} className={classes.root}>
-                            <Typography variant="h4">
+                            <Typography data-testid="name" variant="h4">
                                 {props.route.getName()}
                             </Typography>
                         </Grid>
@@ -39,10 +39,10 @@ export default function RouteDetails(props) {
                             <Grid item xs={8} >
                                 <Grid container className={classes.root} spacing={1} direction="column" >
                                     <Grid item>
-                                        <DetailsMap route={props.route}></DetailsMap>
+                                        <DetailsMap data-testid="map" route={props.route}></DetailsMap>
                                     </Grid>
                                     <Grid item xs={9}>
-                                        <ElevationGraph data ={props.route.getRouteElements()}></ElevationGraph>
+                                        <ElevationGraph  data ={props.route.getRouteElements()}></ElevationGraph>
                                     </Grid>
                                 </Grid>
                             </Grid>
@@ -52,17 +52,17 @@ export default function RouteDetails(props) {
                                         <Grid item container className={classes.root} spacing={2} direction="column" >
                                             {props.route.getDate().toDateString()!="Invalid Date"&&
                                             <Grid item>
-                                                <Typography className={classes.pos} >
+                                                <Typography className={classes.pos} data-testid="date">
                                                     Date: {props.route.getDate().toDateString()}
                                                 </Typography>
                                             </Grid>}
                                             <Grid item container spacing={1}>
-                                                <Grid item xs={6}>
+                                                <Grid item xs={6} data-testid="dtc">
                                                     Distance: {Math.round(props.route.getTotalDistance()*1000)/1000} Km
                                                 </Grid>
                                             </Grid>
                                             <Grid item>
-                                                <Typography className={classes.pos} >
+                                                <Typography className={classes.pos} data-testid="description" >
                                                     Description: {props.route.getDescription()}
                                                 </Typography>
                                             </Grid>

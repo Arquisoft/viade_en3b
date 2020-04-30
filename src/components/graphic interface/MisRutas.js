@@ -15,6 +15,7 @@ const MisRutas = () => {
     return (
         <div>
             <Button
+                data-testid="routes" 
                 ref={anchorRef}
                 aria-controls={open ? 'menu-list-grow' : undefined}
                 aria-haspopup="true"
@@ -32,14 +33,14 @@ const MisRutas = () => {
                         <Paper >
                             <MenuList >
 
-                                <MenuItem onClick={() => window.location.href='#/myroutes'}>
+                                <MenuItem data-testid="seeRoutes"  onClick={() => window.location.href='#/myroutes'}>
                                     <ListItemIcon>
                                         <ListIcon />
                                     </ListItemIcon>
                                     <Typography>See routes</Typography>
                                 </MenuItem>
 
-                                <MenuItem onClick={() =>  window.location.href='#/newRoute'}>
+                                <MenuItem data-testid="createRoutes"  onClick={() =>  window.location.href='#/newRoute'}>
                                     <ListItemIcon>
                                         <EditLocationIcon />
                                     </ListItemIcon>
