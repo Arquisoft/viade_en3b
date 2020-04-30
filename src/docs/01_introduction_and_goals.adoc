@@ -19,9 +19,8 @@ The main requirements are:
 .Motivation
 The objective of Viade is to give users a platform where they can share their taste and opinions about the routes they take, in a way that they can be sure all their data will be secure.
 
-==== Developers: 
+=== Developers: 
 
-* link:https://github.com/PabloCanalSuarez[Pablo Cañal Suárez.] 
 * link:https://github.com/CarmenVigo[Carmen Vigo Rodríguez.]
 * link:https://github.com/UO264850[Lucía Megido García.]
 * link:https://github.com/ElenaRodriguezRio[Elena Rodríguez Río.]

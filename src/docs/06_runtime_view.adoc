@@ -7,13 +7,16 @@ This segment will be in continuous development.
 
 === Login
 This is the runtime view on how to log in viade.
-image:images/06_RuntimeView-LogIn.JPG["Login"]
+
+image:06_RuntimeView-LogIn.JPG["Login"]
 
 === Create route
 This is the runtime view on how to create a route in viade.
-image:images/06_RuntimeView-CreateRoute.JPG["Create Route"]
+
+image:06_RuntimeView-CreateRoute.JPG["Create Route"]
 
 === See routes
 This is the runtime view on how to visualize a route in viade.
-image:images/06_RuntimeView-SeeRoutes.JPG["See Routes"]
+
+image:06_RuntimeView-SeeRoutes.JPG["See Routes"]
 
