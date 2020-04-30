@@ -3,18 +3,8 @@
 
 === Routes
 
-The basic type of information stored, and showed in our application will be about routes. A route represents a trajectory formed by different points on a the real world. 
+The information stored, and showed in our application will be mostly about routes. A route represents a trajectory formed by different points on the real world. 
 
-They will be able to be stored into the Pod of each user, decoupled from the rest of the application. Routes will be shown to the user employing a graphical interface, preferably a full-fledged map.
+Routes can be stored and loaded from the Pod of each user independently of which application has created them. That is because, thanks to the link:https://github.com/Arquisoft/viadeSpec[ViadeSpec], we have defined an specification that grants interoperability with other route management systems.
 
-More information about the extra information in a route (publications, photos added by the user) will be better defined after the application enters development.
-
-
-=== Profile
-
-A system of authentication comprises more security for our users, and a closed unit of information that can store its own information. The profile of each user will probably include some data like a username, profile picture, favorite set of routes, and so on.
-
-
-=== MVC Pattern
-
-The pattern implemented by the React Framework and our structure of choice. This pattern is based on the necapsulation of the three core parts of an application: Model, View and Controllers. In our application this distinction is easy to recognize. The model is, following the specification of the Solid project, completely encapsulated into the Pod of each user. The controllers run on the node.js project we are provided. The React Framework links said controllers to a dinamic view.
+Routes are shown to the user through two different interfaces: one where they are listed with the map and the most important data about them, and the other one with more specific data (such as images) that the user can see when accesing the routes details.
