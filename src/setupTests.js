@@ -13,3 +13,12 @@ global.document.createElementNS = function(namespaceURI, qualifiedName) {
   }
   return createElementNSOrig.apply(this,arguments)
 }
+
+document.createRange = () => ({
+  setStart: () => {},
+  setEnd: () => {},
+  commonAncestorContainer: {
+    nodeName: "BODY",
+    ownerDocument: document,
+  },
+})
