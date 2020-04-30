@@ -15,6 +15,7 @@ const MyFriends = () => {
     return (
         <div>
             <Button
+                data-testid="btn"
                 ref={anchorRef}
                 aria-controls={open ? 'menu-list-grow' : undefined}
                 aria-haspopup="true"
@@ -32,14 +33,14 @@ const MyFriends = () => {
                         <Paper >
                             <MenuList >
 
-                                <MenuItem onClick={() => window.location.href='#/seeFriends'}>
+                                <MenuItem data-testid="btnSee" onClick={() => window.location.href='#/seeFriends'}>
                                     <ListItemIcon>
                                         <ListIcon />
                                     </ListItemIcon>
                                     <Typography>See Friends</Typography>
                                 </MenuItem>
 
-                                <MenuItem onClick={() =>  window.location.href='#/newGroup'}>
+                                <MenuItem data-testid="btnGrp" onClick={() =>  window.location.href='#/newGroup'}>
                                     <ListItemIcon>
                                         <AddGroupIcon />
                                     </ListItemIcon>

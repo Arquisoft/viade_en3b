@@ -63,7 +63,7 @@ export default class ElevationGraph extends Component {
     show = isShown(this.data);
     render(){
         return (
-          <Container>
+          <Container data-testid="chart" >
             {this.show&&
             <VictoryChart height={"200"}>
               <VictoryStack animate={{

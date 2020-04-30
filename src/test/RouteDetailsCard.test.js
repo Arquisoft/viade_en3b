@@ -24,7 +24,7 @@ test('test details show correctly', () => {
     
 });
 
-test('test details show correctly', () => {
+test('test details text show correctly', () => {
 
     const rElement = new RouteElement(47.0, 47.0, 0);
 
