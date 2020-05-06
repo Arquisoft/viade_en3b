@@ -5,14 +5,7 @@
 
 === Level 1
 
-Viade first block view consist on the general vision of the application. As viade is a decentralized application, the data is separated from viade.
-
-image:images/05_level1.PNG["Level 1"]
-
-
-=== Level 2
-
-Here we take a look on viade's parts.
+In this first level we take a look on viade's parts.
 
 .Components
 These are react components, they show the interface and interact with the user. The components not only encapsulates parts of the interface, but also funcionalities.
@@ -26,13 +19,13 @@ Since solid slows down when it needs to retrieve a lot of data we decided to imp
 .Entities
 Even though they are not reprresented in the diagram, they are clases that represent data. These makes that makes the file format of the routes independent from the rest of the aplication. The interface components and the cache deals with the Route entity and others, instead of dealing with the files directly.
 
-image:images/05_level2.png["Level 2"]
+image:images/05_level2.PNG["Level 1"]
 
-=== Level 3
+=== Level 2
 
 3.1 Model-Controller interaction
 
-This tird block is a closer look into the handlers.
+Thie second block is a closer look into the handlers.
 
 .RouteHandler
 It coordinates the interaction between the information retrieved from the pod and its tranlation into entities.
@@ -43,8 +36,8 @@ It deals with getting and uploading files into the pod.
 .Parsers
 They translate the files from the pod.
 
-image:images/05_level3.png["Level 3"]
+image:images/05_level3.PNG["Level 2"]
 
 === Overview
 These would be and example of the diferent parts interacting when uploading a route.
-image:images/05_createRoute.jpg["create route"]
+image:images/05_createRoute.JPG["create route"]
