@@ -19,7 +19,7 @@ Since solid slows down when it needs to retrieve a lot of data we decided to imp
 .Entities
 Even though they are not reprresented in the diagram, they are clases that represent data. These makes that makes the file format of the routes independent from the rest of the aplication. The interface components and the cache deals with the Route entity and others, instead of dealing with the files directly.
 
-image:images/05_level2.PNG["Level 1"]
+image:05_level2.PNG["Level 1"]
 
 === Level 2
 
@@ -34,8 +34,9 @@ It deals with getting and uploading files into the pod.
 .Parsers
 They translate the files from the pod.
 
-image:images/05_level3.PNG["Level 2"]
+image:05_level3.PNG["Level 2"]
 
 === Overview
 These would be and example of the diferent parts interacting when uploading a route.
-image:images/05_createRoute.JPG["create route"]
+
+image:05_createRoute.JPG["create route"]
