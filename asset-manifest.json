@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/viade_en3b/static/css/main.f06df2be.chunk.css",
+    "main.js": "/viade_en3b/static/js/main.9fd4cbc3.chunk.js",
+    "main.js.map": "/viade_en3b/static/js/main.9fd4cbc3.chunk.js.map",
+    "runtime-main.js": "/viade_en3b/static/js/runtime-main.41e316df.js",
+    "runtime-main.js.map": "/viade_en3b/static/js/runtime-main.41e316df.js.map",
+    "static/css/2.10516b36.chunk.css": "/viade_en3b/static/css/2.10516b36.chunk.css",
+    "static/js/2.e2be58d5.chunk.js": "/viade_en3b/static/js/2.e2be58d5.chunk.js",
+    "static/js/2.e2be58d5.chunk.js.map": "/viade_en3b/static/js/2.e2be58d5.chunk.js.map",
+    "index.html": "/viade_en3b/index.html",
+    "precache-manifest.4ae87e73cc275c7fc48dcc90e1e3793d.js": "/viade_en3b/precache-manifest.4ae87e73cc275c7fc48dcc90e1e3793d.js",
+    "service-worker.js": "/viade_en3b/service-worker.js",
+    "static/css/2.10516b36.chunk.css.map": "/viade_en3b/static/css/2.10516b36.chunk.css.map",
+    "static/css/main.f06df2be.chunk.css.map": "/viade_en3b/static/css/main.f06df2be.chunk.css.map",
+    "static/js/2.e2be58d5.chunk.js.LICENSE.txt": "/viade_en3b/static/js/2.e2be58d5.chunk.js.LICENSE.txt",
+    "static/media/logo1.svg": "/viade_en3b/static/media/logo1.fd8da136.svg",
+    "static/media/index.css": "/viade_en3b/static/media/roboto-latin-900italic.ebf6d164.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.41e316df.js",
+    "static/css/2.10516b36.chunk.css",
+    "static/js/2.e2be58d5.chunk.js",
+    "static/css/main.f06df2be.chunk.css",
+    "static/js/main.9fd4cbc3.chunk.js"
+  ]
+}
